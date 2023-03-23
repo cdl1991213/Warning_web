@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>文书签章</title>
+    <script src="js/jquery-1.12.4-min.js"></script>
+
+    <script>
+        $(function () {
+            $("#area_header_sign").load('header.html');
+        });
+    </script>
+</head>
+<body>
+<div id="all_screen">
+    <div id="all_content">
+        <!--  头部      -->
+        <div class="area-header" id="area_header_sign"></div>
+        <div class="listbox">
+            <!--  搜索      -->
+            <div class="searchblock">
+                <form id="search_ajax">
+                    <div class="tabletype lf">
+                        <div class="tabletext"><input id="search_casetype" type="text" name="casetype" value="表格类型" readonly></div>
+                        <div class="tablelist">
+                            <ul>
+                                <li>网警</li>
+                                <li>话单</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="searchbox lf">
+                        <input type="text" name="keyword" id="searchinput" placeholder="请输入案件编号/案件名称/表格编号查询" autocomplete="off" value="">
+                        <input id="searchbtn" type="button" class="abc" value="">
+                    </div>
+                    <div class="clear"></div>
+                </form>
+            </div>
+            <!--  列表      -->
+            <div class="caselist">
+
+                <div class="caselist_title">
+                    <p class="caseid">序号</p>
+                    <p class="casenum">案件编号</p>
+                    <p class="casename">案件名称</p>
+                    <p class="tablenum">表格编号</p>
+                    <p class="detailtype">表格类型</p>
+                    <p class="oparate">操作</p>
+                    <div class="clear"></div>
+                </div>
+                <div class="caselist_content" id="caseList">
+                    <div class="caselist_line">
+                        <p class="caseid">1</p>
+                        <p class="casenum"><a href="#" target="_blank">AS12345677687987089</a></p>
+                        <p class="casename"><a href="#" target="_blank">XX被诈骗案</a></p>
+                        <p class="tablenum"><a href="#" target="_blank">HZ06XJS202101011000</a></p>
+                        <p class="detailtype">网警</p>
+                        <p class="oparate"><a href="#" target="_blank" class="editcase"></a><a href="#" target="_blank" class="signcase"></a></p>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="caselist_line">
+                        <p class="caseid">1</p>
+                        <p class="casenum"><a href="#">AS12345677687987089</a></p>
+                        <p class="casename"><a href="#">XX被诈骗案</a></p>
+                        <p class="tablenum"><a href="#">HZ06XJS202101011000</a></p>
+                        <p class="detailtype">网警</p>
+                        <p class="oparate"><a href="#" class="editcase"></a><a href="#" class="signcase"></a></p>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="caselist_line">
+                        <p class="caseid">1</p>
+                        <p class="casenum"><a href="#">AS12345677687987089</a></p>
+                        <p class="casename"><a href="#">XX被诈骗案</a></p>
+                        <p class="tablenum"><a href="#">HZ06XJS202101011000</a></p>
+                        <p class="detailtype">网警</p>
+                        <p class="oparate"><a href="#" class="editcase"></a><a href="#" class="signcase"></a></p>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="caselist_line">
+                        <p class="caseid">1</p>
+                        <p class="casenum"><a href="#">AS12345677687987089</a></p>
+                        <p class="casename"><a href="#">XX被诈骗案</a></p>
+                        <p class="tablenum"><a href="#">HZ06XJS202101011000</a></p>
+                        <p class="detailtype">网警</p>
+                        <p class="oparate"><a href="#" class="editcase"></a><a href="#" class="signcase"></a></p>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="caselist_line">
+                        <p class="caseid">1</p>
+                        <p class="casenum"><a href="#">AS12345677687987089</a></p>
+                        <p class="casename"><a href="#">XX被诈骗案</a></p>
+                        <p class="tablenum"><a href="#">HZ06XJS202101011000</a></p>
+                        <p class="detailtype">网警</p>
+                        <p class="oparate"><a href="#" class="editcase"></a><a href="#" class="signcase"></a></p>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="caselist_line">
+                        <p class="caseid">1</p>
+                        <p class="casenum"><a href="#">AS12345677687987089</a></p>
+                        <p class="casename"><a href="#">XX被诈骗案</a></p>
+                        <p class="tablenum"><a href="#">HZ06XJS202101011000</a></p>
+                        <p class="detailtype">网警</p>
+                        <p class="oparate"><a href="#" class="editcase"></a><a href="#" class="signcase"></a></p>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="caselist_line">
+                        <p class="caseid">1</p>
+                        <p class="casenum"><a href="#">AS12345677687987089</a></p>
+                        <p class="casename"><a href="#">XX被诈骗案</a></p>
+                        <p class="tablenum"><a href="#">HZ06XJS202101011000</a></p>
+                        <p class="detailtype">网警</p>
+                        <p class="oparate"><a href="#" class="editcase"></a><a href="#" class="signcase"></a></p>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="caselist_line">
+                        <p class="caseid">1</p>
+                        <p class="casenum"><a href="#">AS12345677687987089</a></p>
+                        <p class="casename"><a href="#">XX被诈骗案</a></p>
+                        <p class="tablenum"><a href="#">HZ06XJS202101011000</a></p>
+                        <p class="detailtype">网警</p>
+                        <p class="oparate"><a href="#" class="editcase"></a><a href="#" class="signcase"></a></p>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="caselist_line">
+                        <p class="caseid">1</p>
+                        <p class="casenum"><a href="#">AS12345677687987089</a></p>
+                        <p class="casename"><a href="#">XX被诈骗案</a></p>
+                        <p class="tablenum"><a href="#">HZ06XJS202101011000</a></p>
+                        <p class="detailtype">网警</p>
+                        <p class="oparate"><a href="#" class="editcase"></a><a href="#" class="signcase"></a></p>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="caselist_line">
+                        <p class="caseid">1</p>
+                        <p class="casenum"><a href="#">AS12345677687987089</a></p>
+                        <p class="casename"><a href="#">XX被诈骗案</a></p>
+                        <p class="tablenum"><a href="#">HZ06XJS202101011000</a></p>
+                        <p class="detailtype">网警</p>
+                        <p class="oparate"><a href="#" class="editcase"></a><a href="#" class="signcase"></a></p>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="caselist_line">
+                        <p class="caseid">1</p>
+                        <p class="casenum"><a href="#">AS12345677687987089</a></p>
+                        <p class="casename"><a href="#">XX被诈骗案</a></p>
+                        <p class="tablenum"><a href="#">HZ06XJS202101011000</a></p>
+                        <p class="detailtype">网警</p>
+                        <p class="oparate"><a href="#" class="editcase"></a><a href="#" class="signcase"></a></p>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  分页      -->
+        <div class="signpage" id="signPage"></div>
+
+    </div>
+</div>
+
+</body>
+
+</html>

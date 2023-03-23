@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PAGE7_LEFT_test</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/style2.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script type="text/javascript" src="../../../js/js_methodGIT/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="js/chart3.3.2.js" ></script>
+    <script type="text/javascript" src="js/Echart.js" ></script>
+    <script type="text/javascript" src="js/getNum.js" ></script>
+    <script type="text/javascript" src="js/page_ifram.js" ></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/value.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/comm.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/comm_util.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/time_utils.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/md5.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/aes.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/aesUtil.js"></script>
+
+
+    <style type="text/css">
+        #box{width:0.6rem;height:0.6rem;background-color:#46E88B;position:absolute;border-radius:50%;}
+    </style>
+</head>
+<body>
+<div id="all_screen" class="all_screen" style="background:url(img/background_right.png) no-repeat center center;background-size: cover;" >
+
+    <div style="float: left;width:19.2rem;height:3.3rem;position: relative;"></div>
+    <div style="float: left;width:19.2rem;height:7.6rem;position: relative;">
+        <div style="float: left;top:0;left:0;width:100%;height:8rem;position: absolute;">
+            <!--            标题-->
+            <div style="float: left;width: 100%;height: 2rem; ">
+                <div style="float: left;margin-left:1.828rem;width: 15.538rem;height:1.285rem;background: url(img/title_bottom.png) no-repeat center center;line-height: 1.285rem;font-size: 1.005rem;font-weight:bold;text-align: center;color:#ACDFFD;">
+                    反骗码
+                </div>
+            </div>
+            <!--            画布-->
+            <div style="float:left;width:100%;height:6rem;position: relative;">
+<!--                图上上方文字-->
+                <div style="float: right;right:2.742rem;width: 5.941rem;height: 5.941rem;position: absolute;z-index: 1;">
+                    <div style="float: left;margin-left:1.371rem;width:3.199rem;height: 2.97rem;line-height:5.02rem;font-size:0.685rem;text-align:center;color:#CEE0F0;">绿码率</div>
+                    <div id="lml" style="float: left;margin-left:1.5rem;width:3.2rem;height: 2.97rem;line-height:1.371rem;font-size:0.914rem;text-align:center;color:#CEE0F0;">99%</div>
+                </div>
+<!--                左侧文字-->
+                <div style="float: left;width: 10.511rem;height: 5.941rem;position: absolute;z-index: 1;">
+                    <div style="float: left;width: 10.511rem;height: 1.965rem;position: relative;">
+                        <div style="float: left;left:1.371rem;top:0;width:2.742rem;height: 1.965rem;line-height:2.8791rem;font-size:0.731rem;text-align:left;color:#ffffff;position: absolute;">绿码</div>
+                        <div id="lm" style="float: left;left:4.113rem;top:0;width:6.398rem;height: 1.965rem;line-height:2.8791rem;font-size:0.731rem;text-align:left;color:#46e88b;position: absolute;">123150</div>
+                    </div>
+                    <div style="float: left;width: 10.511rem;height: 1.965rem;position: relative;">
+                        <div style="float: left;left:1.371rem;top:0;width:2.742rem;height: 1.965rem;line-height:1.965rem;font-size:0.731rem;text-align:left;color:#FFFFFF;position: absolute;">红码</div>
+                        <div id="hm" style="float: left;left:4.113rem;top:0;width:6.398rem;height: 1.965rem;line-height:1.965rem;font-size:0.731rem;text-align:left;color:#fc604f;position: absolute;">1233</div>
+                    </div>
+                    <div style="float: left;width: 10.511rem;height: 2.01rem;position: relative;">
+                        <div style="float: left;left:1.371rem;top:0;width:2.742rem;height: 1.965rem;line-height:1.051rem;font-size:0.731rem;text-align:left;color:#FFFFFF;position: absolute;">红转绿</div>
+                        <div id="hzl" style="float: left;left:4.113rem;top:0;width:6.398rem;height: 1.965rem;line-height:1.051rem;font-size:0.731rem;text-align:left;color:#2e9adf;position: absolute;">506</div>
+                    </div>
+                </div>
+<!--                甜甜圈图-->
+                <div style="float: right;right:2.742rem;width: 5.941rem;height: 5.941rem; background: url(img/decoration.png) no-repeat center center;background-size: contain;position: absolute;z-index: 0;">
+                    <div id="page_left_line_fpm" style="float: left;margin-left:0.6855rem;margin-top:0.6855rem;width: 4.57rem;height: 4.57rem; ">
+                        <div id="box" ></div>
+                        <canvas id="Chart_doughnut_fpm" width="10" height="10"></canvas>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="float: left;width:19.2rem;height:18rem;position: relative;">
+        <div style="float: left;width:19.2rem;height:15.995rem;position: absolute;">
+            <!--            标题-->
+            <div style="float: left;width: 100%;height: 4.113rem; ">
+                <div style="float: left;margin-left:1.828rem;width: 15.538rem;height:2.285rem;background: url(img/title_bottom.png) no-repeat center center;position: relative; ">
+                    <div style="float: left;width: 3.427rem;height:2.285rem;left:3.199rem;top:0;line-height: 2.285rem;font-size: 1rem;font-weight:bold;text-align: center;color:#ACDFFD;position:absolute;">案发数</div>
+                    <div style="float: left;width: 4.57rem;height:2.285rem;left:7.769rem;top:0;line-height: 2.285rem;font-size: 1rem;font-weight:bold;text-align: center;color:#8DC1D8;position:absolute;">案发金额</div>
+                </div>
+
+                <!--            图例-->
+                <div style="float: left;width: 100%;height: 1.828rem; position: relative;">
+                    <div style="float: left;left:10rem;top:0.6rem;width:0.2742rem;height: 0.614rem;background-color:#46E88B;border-radius: 3px;position: absolute;"></div>
+                    <div id="thisMonth" style="float: left;left:10rem;width:2.742rem;height: 1.828rem;line-height:1.828rem;font-size:0.631rem;text-align:center;color:#FFFFFF;position: absolute;">本月</div>
+                    <div style="float: left;left:13rem;top:0.6rem;width:0.2742rem;height: 0.614rem;background-color:#2E9ADF;border-radius: 3px;position: absolute;"></div>
+                    <div id="lastMonth" style="float: left;left:13rem;width:2.742rem;height: 1.828rem;line-height:1.828rem;font-size:0.631rem;text-align:center;color:#FFFFFF;position: absolute;">上月</div>
+                    <div id="shuliang" style="float: left;left:15.242rem;width:2.742rem;height: 1.828rem;line-height:1.828rem;font-size:0.631rem;text-align:center;color:#FFFFFF;position: absolute;">全部</div>
+                </div>
+
+            </div>
+            <!--            画布-->
+            <div id="page_left_bar_afs" style="float: left;width: 420px;height: 300px; position: relative;">
+
+            </div>
+        </div>
+    </div>
+    <div style="float: left;width:19.2rem;height:14.28rem;position: relative;">
+
+            <!--            标题-->
+            <div style="float: left;width: 100%;height: 2.5em; ">
+                <div style="float: left;margin-left:1.828rem;width: 15.538rem;height:2.285rem;background: url(img/title_bottom.png) no-repeat center center;line-height:2.285rem;font-size: 1rem;font-weight:bold;text-align: center;color:#ACDFFD;">
+                    高发社区
+                </div>
+            </div>
+            <!--            画布-->
+            <div style="float: left;margin-left:2rem;width: 100%;height: 8.8rem;">
+                <div id="header_gfsq" style="float: left;width: 15.3rem;height: 1.1rem ">
+                    <!--                    content-->
+                    <div  style="float: left;width: 15.3rem;height: 1.1rem; position: relative;">
+                        <div style="float: left;left:0;width: 3rem;height:1.1rem;background-color:rgba(46,154,223,0.7);line-height: 1.1rem;font-size:0.457rem;text-align: center;color: #FFFFFF; position: absolute;">本月</div>
+                        <div style="float: left;left:3.1rem;width: 4rem;height:1.1rem;background-color:rgba(46,154,223,0.7);line-height: 1.1rem;font-size:0.457rem;text-align: center;color: #FFFFFF; position: absolute;">所在街道</div>
+                        <div style="float: left;left:7.2rem;width: 4rem;height:1.1rem;background-color:rgba(46,154,223,0.7);line-height: 1.1rem;font-size:0.457rem;text-align: center;color: #FFFFFF; position: absolute;">案件数量</div>
+                        <div style="float: left;left:11.3rem;width: 4rem;height:1.1rem;background-color:rgba(46,154,223,0.7);line-height: 1.1rem;font-size:0.457rem;text-align: center;color: #FFFFFF; position: absolute;">案损价值总和</div>
+
+                    </div>
+                </div>
+                <div id="content_gfsq_list" style="float: left;margin-top:0.057rem;width: 15.1724rem;height: 7.7rem; ">
+<!--                    <div id="content_gfsq_0"  style="float: left;margin-top:0.057rem;width: 15.1724rem;height: 1.1rem; position: relative;">-->
+<!--                        <div style="float: left;left:0;width: 3rem;height:1.1rem;background-color:rgba(46,154,223,0.5);line-height: 1.1rem;font-size:0.457rem;text-align: center;color: #A0BDFF; position: absolute;">本月</div>-->
+<!--                        <div style="float: left;left:3.057rem;width: 4rem;height:1.1rem;background-color:rgba(46,154,223,0.5);line-height: 1.1rem;font-size:0.457rem;text-align: center;color: #A0BDFF; position: absolute;">所在街道</div>-->
+<!--                        <div style="float: left;left:7.114rem;width: 4rem;height:1.1rem;background-color:rgba(46,154,223,0.5);line-height: 1.1rem;font-size:0.457rem;text-align: center;color: #A0BDFF; position: absolute;">案件数量</div>-->
+<!--                        <div style="float: left;left:11.171rem;width: 4rem;height:1.1rem;background-color:rgba(46,154,223,0.5);line-height: 1.1rem;font-size:0.457rem;text-align: center;color: #A0BDFF; position: absolute;">案损价值总和</div>-->
+<!--                    </div>-->
+                </div>
+            </div>
+
+    </div>
+
+</div>
+</body>
+<script type="text/javascript" src="js/page_left_ifram.js"></script>
+</html>

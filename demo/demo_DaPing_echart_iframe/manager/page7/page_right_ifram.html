@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PAGE7_RIGHT</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/style2.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script type="text/javascript" src="../../../js/js_methodGIT/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="js/Echart.js" ></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/value.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/comm.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/comm_util.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/time_utils.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/md5.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/aes.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/aesUtil.js"></script>
+
+    <style>
+
+    </style>
+
+</head>
+<body>
+<div id="all_screen" class="all_screen" style="background:url(img/background_right.png) no-repeat center center;background-size: cover;" >
+
+    <div style="float: left;width:19.2rem;height:3.3rem;position: relative;"></div>
+    <div style="float: left;width:19.2rem;height:9.6rem;position: relative;">
+        <div style="float: right;top:0;right:0;width:19.194rem;height:15.995rem;position: absolute;">
+            <!--            标题-->
+            <div style="float: left;width: 100%;height: 3.613rem; ">
+                <div style="float: left;margin-left:1.828rem;width: 15.538rem;height:2.285rem;background: url(img/title_bottom.png) no-repeat center center;line-height: 2.285rem;font-size:1rem;font-weight:bold;text-align: center;color:#ACDFFD;">
+                    发案趋势
+                </div>
+                <div style="float: left;width: 100%;height: 1.328rem; ">
+                    <div style="float: left;width: 100%;height: 1.328rem; position: relative;">
+                        <div style="float: left;left:10rem;top:0.4rem;width:0.2742rem;height: 0.614rem;background-color:#46E88B;border-radius: 3px;position: absolute;"></div>
+                        <div id="thisMonth" style="float: left;left:10rem;width:2.742rem;height: 1.328rem;line-height:1.328rem;font-size:0.631rem;text-align:center;color:#FFFFFF;position: absolute;">本月</div>
+                        <div style="float: left;left:13rem;top:0.4rem;width:0.2742rem;height: 0.614rem;background-color:#2E9ADF;border-radius: 3px;position: absolute;"></div>
+                        <div id="lastMonth" style="float: left;left:13rem;width:2.742rem;height: 1.328rem;line-height:1.328rem;font-size:0.631rem;text-align:center;color:#FFFFFF;position: absolute;">上月</div>
+                        <div id="shuliang" style="float: left;left:15.242rem;width:2.742rem;height: 1.328rem;line-height:1.328rem;font-size:0.631rem;text-align:center;color:#FFFFFF;position: absolute;">全部</div>
+                    </div>
+                </div>
+            </div>
+            <!--            画布-->
+            <div id="page_right_line_faqs" style="float: left;width: 420px;height:280px; ">
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div style="float: left;width:19.2rem;height:13rem;position: relative;z-index: 1;">
+        <div style="float: right;top:6.398rem;right:0;width:19.194rem;height:13rem;position: absolute;">
+            <div style="float: right;width:19.194rem;height:13rem;position: relative;">
+            <!--            标题-->
+                <div style="top:1rem;width: 100%;height: 2.285rem;position: absolute; ">
+                    <div style="float: left;margin-left:1.828rem;width: 15.538rem;height:2.285rem;background: url(img/title_bottom.png) no-repeat center center;line-height:2.285rem;font-size: 1rem;font-weight:bold;text-align: center;color:#ACDFFD;">
+                        案件类型
+                    </div>
+                </div>
+                <!--            画布-->
+                <div id="page_right_bar_ajlx" style="top:1.5rem;width: 420px;height: 16rem;position: absolute; ">
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="float: left;width:19.2rem;height:18.28rem;position: relative;">
+        <div style="float: right;top:6.683rem;right:0;width:19.194rem;height:9.597rem;position: absolute;">
+            <!--            标题-->
+            <div style="float: left;width: 100%;height:3rem; ">
+                <div style="float: left;margin-left:1.828rem;width:15.538rem;height:2.285rem;background: url(img/title_bottom.png) no-repeat center center;line-height:2.285rem;font-size:1rem;font-weight:bold;text-align: center;color:#ACDFFD;">
+                    发案数
+                </div>
+            </div>
+            <!--            画布-->
+            <div style="float: right;width: 100%;height: 5.941rem;position: relative;">
+                <!--                content-->
+                <div id="content_fas" style="float: left;left:2rem;width:15.538rem;height: 2.8334rem;position: absolute; ">
+                    <!--                    content-->
+                    <div  style="float: left;width: 15.538rem;height: 1.371rem; ">
+                        <div  style="float: left;width: 7.5rem;height: 1.371rem;background-color:rgba(46,154,223,0.5); position: relative;">
+                            <div style="float: left;left: 0.5rem;width: 2.6rem;height:100%;line-height: 1.371rem;font-size:0.64rem;text-align: center;color: #A0BDFF; position: absolute;">本月</div>
+                            <div style="float:right;right: 0;width: 2.6rem;height:100%;line-height: 1.371rem;font-size:0.75rem;text-align: center;color: #FFFFFF; position: absolute;">321</div>
+                        </div>
+                        <div  style="float: left;margin-left:0.1724rem;width: 7.5rem;height: 1.371rem;background-color:rgba(46,154,223,0.5);position: relative; ">
+                            <div style="float: left;left: 0.5rem;width: 2.6rem;height:100%;line-height: 1.371rem;font-size:0.64rem;text-align: center;color: #A0BDFF; position: absolute;">上月</div>
+                            <div style="float:right;right: 0;width: 2.6rem;height:100%;line-height: 1.371rem;font-size:0.75rem;text-align: center;color: #FFFFFF; position: absolute;">269</div>
+                        </div>
+                    </div>
+                    <div  style="float: left;margin-top:0.1rem;width: 15.538rem;height: 1.371rem;">
+                        <div  style="float: left;width: 7.5rem;height: 1.371rem;background-color:rgba(46,154,223,0.5);position: relative; ">
+                            <div style="float: left;left: 0.5rem;width: 2.6rem;height:100%;line-height: 1.371rem;font-size:0.64rem;text-align: center;color: #A0BDFF; position: absolute;">同比</div>
+                            <div style="float:right;right: 0;width:4rem;height:100%;line-height: 1.371rem;font-size:0.75rem;text-align: center;color: #FFFFFF; position: absolute;">+19.33%</div>
+                        </div>
+                        <div  style="float: left;margin-left:0.1724rem;width: 7.5rem;height: 1.371rem;background-color:rgba(46,154,223,0.5); position: relative;">
+                            <div style="float: left;left: 0.5rem;width: 2.6rem;height:100%;line-height: 1.371rem;font-size:0.64rem;text-align: center;color: #A0BDFF; position: absolute;">环比</div>
+                            <div style="float:right;right: 0;width:4rem;height:100%;line-height: 1.371rem;font-size:0.75rem;text-align: center;color: #FFFFFF; position: absolute;">15.52%</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+<script type="text/javascript" src="js/page_right_ifram.js"></script>
+</html>

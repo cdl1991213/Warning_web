@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>冻结审批表</title>
+    <!--    js外部框架引入-->
+    <script type="text/javascript" src="js/jquery-1.12.4-min.js"></script>
+    <script src="js/html2canvas.js"></script>
+    <script src="js/FileSaver.js"></script>
+
+    <!--    js初始化页面引入-->
+    <script src="../../js/common.js"></script>
+
+    <!--    js方法库引入-->
+    <script type="text/javascript" src="../../../js/js_methodGIT/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/value.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/comm.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/comm_util.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/time_utils.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/md5.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/aes.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/aesUtil.js"></script>
+
+    <!--    js页面功能引入-->
+    <script type="text/javascript" src="js/index.js"></script>
+
+    <!--    css页面样式引入-->
+    <link rel="stylesheet" type="text/css" href="../../../css/style2.css">
+    <link rel="stylesheet" type="text/css" href="css/pagination.css">
+    <link rel="stylesheet" type="text/css" href="css/tablestyle.css">
+</head>
+
+<body>
+<div id="all_screen" class="all_screen" style="width:100%;height:auto;background-color:#011024;">
+    <!--    页面顶部导航栏-->
+    <div id="page_header"
+         style="float:left;width:19.2rem;height:0.9rem;background:url(../../../img/yjxt_common/navigation_bar.png) no-repeat center center;background-size:cover;position:relative;"></div>
+    <!--    打印、下载、编辑、签章等操作栏-->
+    <div style="float: left;width:7.14rem;height:1.03rem;margin-left:6.03rem;position:relative; ">
+        <div class="reportedit_content" style="float:left;left:0;top:0.75rem;height:0.45rem;line-height:0.18rem;font-size:0.14rem;position: absolute">返回</div>
+        <div id="reportedit" style="float:right;right:0;top:0.6rem;width:0.6rem;height:0.45rem;line-height:0.18rem;font-size:0.14rem;position: absolute;">
+            <div style="float: left;margin-left:0;margin-top:0.145rem;width:0.16rem;height:0.16rem;background:url(img/oprateedit.png) no-repeat center center;background-size: cover;"></div>
+            <div class="reportedit_content" style="float:right;margin-left:0;margin-top:0.145rem;width:0.4rem;height:0.18rem;text-align:left;">编辑</div>
+        </div>
+        <div style="float:right;right:0.86rem;top:0.6rem;width:0.6rem;height:0.45rem;line-height:0.18rem;font-size:0.14rem;position: absolute;">
+            <div style="float: left;margin-left:0;margin-top:0.145rem;width:0.16rem;height:0.16rem;background:url(img/opratesign.png) no-repeat center center;background-size: cover;"></div>
+            <div id="reportsign" class="reportedit_content" style="float:right;margin-left:0;margin-top:0.145rem;width:0.4rem;height:0.18rem;text-align:left;">签章</div>
+        </div>
+        <div id="reportdown" style="float:right;right:1.72rem;top:0.6rem;width:0.6rem;height:0.45rem;line-height:0.18rem;font-size:0.14rem;position: absolute;">
+            <div style="float: left;margin-left:0;margin-top:0.145rem;width:0.16rem;height:0.16rem;background:url(img/opratedown.png) no-repeat center center;background-size: cover;"></div>
+            <div class="reportedit_content" style="float:right;margin-left:0;margin-top:0.145rem;width:0.4rem;height:0.18rem;text-align:left;">下载</div>
+        </div>
+        <div id="reportprint" style="float:right;right:2.58rem;top:0.6rem;width:0.6rem;height:0.45rem;line-height:0.18rem;font-size:0.14rem;position: absolute;">
+            <div style="float: left;margin-left:0;margin-top:0.145rem;width:0.16rem;height:0.16rem;background:url(img/oprateprint.png) no-repeat center center;background-size: cover;"></div>
+            <div class="reportedit_content" style="float:right;margin-left:0;margin-top:0.145rem;width:0.4rem;height:0.18rem;text-align:left;">打印</div>
+        </div>
+    </div>
+
+    <!--    ------------------------------------------------------------------------------------->
+    <!--    冻结审批表  表格外部框架-->
+    <div id="page_form"
+         style="float:left;margin-left:0.6rem;margin-top:0;width: 18rem;height: auto;position: relative;">
+        <!--        编辑表格-->
+        <!--  全页表格      -->
+        <div class="contentbox" id="tableReport" >
+
+            <div id="shang" >
+                <!--            上半页表头-->
+                <div class="conheader">
+                    <div class="title">公安部电信诈骗案件侦办平台呈请冻结审批表</div>
+                    <div class="bottom">
+                        <div class="lf">填表单位：
+                            <input id="tbdw" type="text" style="text-align: left;font-size: 16px;" name="adminunit" id="reportadminunit" value="刑侦大队" readonly="readonly">
+                        </div>
+                        <div class="time rt">填表日期：
+                            <input id="tbrq" type="text" style="font-size: 16px;width:120px; " name="intime" id="intime" value="" readonly="readonly">
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <!--            上半页内框-->
+                <table cellpadding="0" cellspacing="0" style="page-break-after:always">
+                    <tr>
+                        <td class="lefttitle" colspan="3">案件名称</td>
+                        <td colspan="13">
+                            <input id="asjmc" type="text" style="text-align: left" name="causename" id="reportcausename" value="" readonly="readonly">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lefttitle" colspan="3">案件编号</td>
+                        <td colspan="13">
+                            <input id="asjlb" type="text" style="text-align: left" name="causetype" id="reportcausetype" value=""
+                                   readonly="readonly">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lefttitle" colspan="3">法律文书号</td>
+                        <td colspan="13">
+                            <input id="wsh" type="text" style="text-align: left" name="documentno" id="reportdocumentno" value="" readonly="readonly">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lefttitle" colspan="3">冻结类别</td>
+                        <td colspan="13">
+                            <input id="djlb" type="text" style="text-align: left" name="documentno"  value="" readonly="readonly">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lefttitle" colspan="3">冻结账号</td>
+                        <td colspan="13">
+                            <input id="djzh" type="text" style="text-align: left" name="documentno"  value="" readonly="readonly">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lefttitle" colspan="3">承办人</td>
+                        <td colspan="5">
+                            <input id="cxr" type="text" style="float:left;margin-left:15px;width:110px;text-align: left;font-size: 16px;" name="adminname" id="reportadminname" value="" readonly="readonly">
+                        </td>
+                        <td class="lefttitle" colspan="3">联系方式</td>
+                        <td colspan="5">
+                            <input id="lxfs" type="text" style="float:left;margin-left:15px;width:110px;text-align: left;font-size: 16px;" name="adminphone" id="reportadminphone" value="87289069" readonly="readonly">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="aligntitle">基<br>本<br>案<br>情</td>
+                        <td colspan="14">
+                            <!--                            <textarea name="basicinfo"  id="" maxlength="1000" style="height: 225px;white-space:normal;" readonly="readonly"></textarea>-->
+                            <div name="basicinfo" id="jbaq" contenteditable="false" class="name1" style="text-indent:30px;text-align:left;white-space:normal;height: 225px;overflow: auto;"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="aligntitle">申<br>请<br>人<br>签<br>字</td>
+                        <td colspan="6">
+
+                            <textarea name="basicinfo" maxlength="100" style="height: 80px;" readonly="readonly"></textarea>
+
+                            <div class="unitsuggest" id="reportsuggestunit_sqr" style="float:left;">
+                                <div class="sqr_markname" id="sqr_markname"></div>
+                            </div>
+
+                            <div style="float: right;bottom:40px;right:20px;width:140px;font-size:18px;text-align:left;position: relative;">签名:</div>
+
+                            <div style="float: right;right:40px;top:10px;width:140px;font-size:18px;text-align:left;position: relative;">
+                                <div id="sqr_qm_year" style="float:left;width: 40px;height: 25px;position: relative;">
+                                    <div class="qm_year_1" style="float: left;width: 10px;height: 25px;position: absolute"></div>
+                                    <div class="qm_year_2" style="float: left;left:10px;width: 10px;height: 25px;position: absolute"></div>
+                                    <div class="qm_year_3" style="float: left;left:20px;width: 10px;height: 25px;position: absolute"></div>
+                                    <div class="qm_year_4" style="float: left;left:30px;width: 10px;height: 25px;position: absolute"></div>
+                                </div>
+                                <div style="float:left;">年</div>
+                                <div id="sqr_qm_month" style="float:left;width: 20px;height: 25px;position: relative;">
+                                    <div class="qm_month_1" style="float: left;width: 10px;height: 25px;position: absolute"></div>
+                                    <div class="qm_month_2" style="float: left;left:10px;width: 10px;height: 25px;position: absolute"></div>
+                                </div>
+                                <div style="float:left;">月</div>
+                                <div id="sqr_qm_day" style="float:left;width: 20px;height: 25px;position: relative;">
+                                    <div class="qm_day_1" style="float: left;width: 10px;height: 25px;position: absolute"></div>
+                                    <div class="qm_day_2" style="float: left;left:10px;width: 10px;height: 25px;position: absolute"></div>
+                                </div>
+                                <div style="float:left;">日</div>
+                            </div>
+
+                        </td>
+                        <td colspan="2" class="aligntitle">刑<br>侦<br>部<br>门<br>负<br>责<br>人<br>意<br>见</td>
+                        <td colspan="6">
+                            <textarea name="basicinfo" maxlength="100" style="height: 80px" readonly="readonly"></textarea>
+
+                            <div class="unitsuggest" id="reportsuggestunit_xzbm" style="float:left;">
+                                <div class="markseal_dadui" id="markseal_dadui"></div>
+                                <div class="xzbm_markname" id="xzbm_markname"></div>
+                            </div>
+
+                            <div style="float: right;bottom:40px;right:20px;width:140px;font-size:18px;text-align:left;position: relative;">签名:</div>
+                            <div style="float: right;right:40px;top:10px;width:140px;font-size:18px;text-align:left;position: relative;">
+                                <div style="float: right;width:140px;font-size:18px;text-align:left;position: relative;">
+                                    <div id="xzbm_qm_year" style="float:left;width: 40px;height: 25px;position: relative;z-index: 99;">
+                                        <div class="qm_year_1" style="float: left;width: 10px;height: 25px;position: absolute"></div>
+                                        <div class="qm_year_2" style="float: left;left:10px;width: 10px;height: 25px;position: absolute"></div>
+                                        <div class="qm_year_3" style="float: left;left:20px;width: 10px;height: 25px;position: absolute"></div>
+                                        <div class="qm_year_4" style="float: left;left:30px;width: 10px;height: 25px;position: absolute"></div>
+                                    </div>
+                                    <div style="float:left;">年</div>
+                                    <div id="xzbm_qm_month" style="float:left;width: 20px;height: 25px;position: relative;z-index: 99;">
+                                        <div class="qm_month_1" style="float: left;width: 10px;height: 25px;position: absolute"></div>
+                                        <div class="qm_month_2" style="float: left;left:10px;width: 10px;height: 25px;position: absolute"></div>
+                                    </div>
+                                    <div style="float:left;">月</div>
+                                    <div id="xzbm_qm_day" style="float:left;width: 20px;height: 25px;position: relative;z-index: 99;">
+                                        <div class="qm_day_1" style="float: left;width: 10px;height: 25px;position: absolute"></div>
+                                        <div class="qm_day_2" style="float: left;left:10px;width: 10px;height: 25px;position: absolute"></div>
+                                    </div>
+                                    <div style="float:left;">日</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="aligntitle">分<br>管<br>领<br>导<br>签<br>字</td>
+                        <td colspan="14">
+                            <textarea name="basicinfo" maxlength="100" style="height: 120px" readonly="readonly"></textarea>
+
+                            <div class="unitsuggest" id="reportsuggestunit_fgld" style="float:left;">
+                                <div class="markseal_fenju" id="markseal_fenju"></div>
+                                <div class="markseal_agree" id="markseal_agree"></div>
+                                <div class="fgld_markname" id="fgld_markname"></div>
+                            </div>
+
+                            <div style="float: right;right:90px;bottom:80px;width:140px;font-size:18px;text-align:left;position: relative;">签名:</div>
+                            <div style="float: right;right:-12px;bottom:20px;width:140px;font-size:18px;text-align:left;position: relative;">
+                                <div style="float: right;width:140px;font-size:18px;text-align:left;position: relative;">
+                                    <div id="fgld_qm_year" style="float:left;width: 40px;height: 25px;position: relative;z-index: 99;">
+                                        <div class="qm_year_1" style="float: left;width: 10px;height: 25px;position: absolute"></div>
+                                        <div class="qm_year_2" style="float: left;left:10px;width: 10px;height: 25px;position: absolute"></div>
+                                        <div class="qm_year_3" style="float: left;left:20px;width: 10px;height: 25px;position: absolute"></div>
+                                        <div class="qm_year_4" style="float: left;left:30px;width: 10px;height: 25px;position: absolute"></div>
+                                    </div>
+                                    <div style="float:left;">年</div>
+                                    <div id="fgld_qm_month" style="float:left;width: 20px;height: 25px;position: relative;z-index: 99;">
+                                        <div class="qm_month_1" style="float: left;width: 10px;height: 25px;position: absolute"></div>
+                                        <div class="qm_month_2" style="float: left;left:10px;width: 10px;height: 25px;position: absolute"></div>
+                                    </div>
+                                    <div style="float:left;">月</div>
+                                    <div id="fgld_qm_day" style="float:left;width: 20px;height: 25px;position: relative;z-index: 99;">
+                                        <div class="qm_day_1" style="float: left;width: 10px;height: 25px;position: absolute"></div>
+                                        <div class="qm_day_2" style="float: left;left:10px;width: 10px;height: 25px;position: absolute"></div>
+                                    </div>
+                                    <div style="float:left;">日</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--    ------------------------------------------------------------------------------------->
+
+    <!--    保存按钮栏-->
+    <div id="page_button" style="float:left;width:100%;height:1.2rem;position: relative;" onclick="convert()">
+        <div id="button_save" style="float: left;left:9.15rem;top:0.42rem;width:0.9rem;height:0.42rem;line-height:0.42rem;background:url(img/save.png) no-repeat center center;font-size:0.14rem;text-align:center;color:#ffffff;position: absolute;" onclick="save()" hidden>
+            保存
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

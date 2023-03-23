@@ -1,0 +1,814 @@
+@charset "UTF-8";
+html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    -webkit-overflow-scrolling: touch;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-image: url('../img/background.jpg');
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, form, p, ul, input {
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    appearance: none;
+    outline: none;
+    background: none;
+    text-align: center;
+    border: none;
+}
+
+input[type=button], input[type=submit] {
+    -webkit-appearance: none;
+    outline: none;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input::-webkit-input-placeholder {
+    color: #00ccff;
+}
+
+input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+input:focus::-moz-placeholder {
+    color: transparent;
+}
+
+input:focus::-ms-input-placeholder {
+    color: transparent;
+}
+
+:focus {
+    outline: 0;
+}
+
+li {
+    padding: 0;
+    margin: 0;
+    line-height: 180%;
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+u {
+    text-decoration: none;
+}
+
+.clear {
+    clear: both;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+}
+
+.clearfix:after, .clearfix:before {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.lf {
+    float: left;
+    font-size: 16px;
+
+}
+
+.rt {
+    float: right;
+    font-size: 16px;
+}
+
+.height35 {
+    width: 100%;
+    height: 0.35rem;
+    background-color: rgba(0,0,0,0);
+}
+
+table {
+    width: 100%;
+    line-height: 25px;
+    text-align: center;
+    border: 1px solid #000;
+    font-size: 12px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    padding: 5px;
+    background-color: #fff;
+    table-layout: fixed;
+}
+
+table tr td {
+
+    border: 1px solid #000;
+    padding: 9px 0;
+}
+
+table input {
+    outline: none;
+    border: none;
+    width: 98%;
+    height: 23px;
+    line-height: 23px;
+    margin: 0 auto;
+    /*控制表格中所有input内文字的color*/
+    color: #000;
+    font-size: 12px;
+    text-align: center;
+    background-color: #fff;
+}
+
+table textarea {
+    resize: none;
+    outline: none;
+    border: none;
+    width: 98%;
+    height: 98%;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: left;
+    overflow: hidden;
+    background-color: #fff;
+    text-overflow: ellipsis;
+}
+
+#tableReport table, #tableReport table input, #tableReport table textarea {
+    font-size: 14px;
+}
+
+table .aligntitle {
+    line-height: 18px;
+}
+
+table .tableheight90 {
+    height: 90px;
+}
+
+table .lefttitle {
+    text-align: left;
+    padding-left: 9px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+table .padtitle {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+table .lineheight20 {
+    line-height: 20px;
+}
+
+@media print {
+    body {
+        -webkit-print-color-adjust: exact;
+    }
+}
+
+@page {
+    size: auto;
+    margin: 0;
+}
+
+/*通用样式 end*/
+/*头部样式*/
+.area-header .header {
+    width: 100%;
+    height: 100px;
+    padding: 0 60px;
+    color: #0ab7ff;
+    font-size: 18px;
+    background: url('../img/headerbg.png') no-repeat center;
+    overflow: hidden;
+    background-size: 100%;
+}
+
+.area-header .header a {
+    color: #0ab7ff;
+}
+
+.header_left {
+    float: left;
+    line-height: 50px;
+}
+
+.header_left_unit {
+    color: #7ad8ff;
+    margin-right: 35px;
+}
+
+.week {
+    margin: 0 10px;
+}
+
+.header_right {
+    float: right;
+    overflow: hidden;
+}
+
+.header_right li {
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin: 0 10px;
+}
+
+.header_right li:hover a {
+    color: #7ad8ff;
+    text-decoration: none;
+}
+
+.header_right li.active a {
+    font-weight: bold;
+}
+
+/*文书签章页搜索框*/
+.listbox {
+    width: 100%;
+    padding: 0 60px;
+}
+
+.searchblock {
+    width: 100%;
+    height: 45px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+.tabletype {
+    width: 120px;
+    position: relative;
+}
+
+.tabletext {
+    width: 100%;
+    height: 45px;
+    background: url("../img/tabletextbg.png") no-repeat center;
+    cursor: pointer;
+}
+
+.tabletext {
+    border: 1px solid rgba(3, 110, 154, 0.35);
+    border-image: -webkit-linear-gradient(to right, rgba(13, 54, 78, 1), rgba(3, 110, 154, 0.2) 45%, rgba(13, 54, 78, 1)) 1 0.5 1;
+    border-image: -moz-linear-gradient(to right, rgba(13, 54, 78, 1), rgba(3, 110, 154, 0.2) 45%, rgba(13, 54, 78, 1)) 1 0.5 1;
+    border-image: -o-linear-gradient(to right, rgba(13, 54, 78, 1), rgba(3, 110, 154, 0.2) 45%, rgba(13, 54, 78, 1)) 1 0.5 1;
+    border-image: linear-gradient(to right, rgba(13, 54, 78, 1), rgba(3, 110, 154, 0.2) 45%, rgba(13, 54, 78, 1)) 1 0.5 1;
+}
+
+.tabletext input {
+    cursor: pointer;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    font-size: 20px;
+    color: #00ccff;
+    font-weight: bold;
+}
+
+.tablelist {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 45px;
+    left: 0;
+    background-color: rgba(5, 38, 63, 0.95);
+    z-index: 10;
+    border: 1px solid rgba(3, 110, 154, 0.5);
+    border-top: none;
+}
+
+.tablelist li {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    color: #0ab7ff;
+    font-size: 16px;
+    text-align: center;
+}
+
+.tablelist li:hover {
+    background-color: rgba(13, 54, 78, 0.8);
+}
+
+.searchbox {
+    width: 420px;
+    height: 45px;
+    background: url("../img/searchboxbg.png") no-repeat center;
+    overflow: hidden;
+    margin-left: 15px;
+}
+
+.searchbox {
+    border: 1px solid rgba(3, 110, 154, 0.35);
+    border-image: -webkit-linear-gradient(to right, rgba(13, 54, 78, 1), rgba(3, 110, 154, 0.1) 30%, rgba(13, 54, 78, 1)) 1 10 1;
+    border-image: -moz-linear-gradient(to right, rgba(13, 54, 78, 1), rgba(3, 110, 154, 0.1) 30%, rgba(13, 54, 78, 1)) 1 10 1;
+    border-image: -o-linear-gradient(to right, rgba(13, 54, 78, 1), rgba(3, 110, 154, 0.1) 30%, rgba(13, 54, 78, 1)) 1 10 1;
+    border-image: linear-gradient(to right, rgba(13, 54, 78, 1), rgba(3, 110, 154, 0.1) 30%, rgba(13, 54, 78, 1)) 1 10 1;
+}
+
+.searchbox input[name='keyword'] {
+    width: 373px;
+    height: 43px;
+    font-size: 18px;
+    color: #00ccff;
+    line-height: 43px;
+}
+
+.searchicon {
+    width: 45px;
+    height: 45px;
+    float: right;
+    border-left: 1px solid rgba(3, 110, 154, 0.2);
+    background: url('../img/ss.png') no-repeat 10px 10px;
+    cursor: pointer;
+}
+
+.searchicon:hover {
+    background-color: rgba(12, 116, 214, 0.1);
+    border-left-color: rgba(3, 110, 154, 0.5);
+}
+
+/*文书签章页列表*/
+.caselist {
+    width: 100%;
+}
+
+.caselist_title, .caselist_line {
+    width: 100%;
+    border: 1px solid rgba(3, 110, 154, 0.35);
+    overflow: hidden;
+}
+
+.caselist_title {
+    font-size: 22px;
+    height: 55px;
+    color: #89e7ff;
+    background-color: #05253f;
+}
+
+.caselist_line {
+    height: 50px;
+    font-size: 18px;
+    color: #00ccff;
+    border-top: none;
+}
+
+.caselist_title p, .caselist_line p {
+    float: left;
+    text-align: center;
+}
+
+.caselist_title p {
+    line-height: 53px;
+}
+
+.caselist_line p {
+    line-height: 48px;
+}
+
+.caselist_line p a {
+    color: #00ccff;
+}
+
+.caselist p.caseid {
+    width: 8%;
+    cursor: default;
+}
+
+.caselist p.casenum {
+    width: 25%;
+}
+
+.caselist p.casename {
+    width: 20%;
+}
+
+.caselist p.tablenum {
+    width: 25%;
+}
+
+.caselist p.detailtype {
+    width: 10%;
+    cursor: default;
+}
+
+.caselist p.oparate {
+    width: 12%;
+}
+
+.caselist_line p.oparate {
+    height: 48px;
+    line-height: normal;
+}
+
+.caselist_line p.oparate a {
+    display: inline-block;
+    width: 20px;
+    height: 48px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.caselist_line p.oparate .editcase {
+    background-image: url("../img/editcase.png");
+    margin-right: 20px;
+}
+
+.caselist_line p.oparate .signcase {
+    background-image: url("../img/signcase.png");
+}
+
+.caselist_line:hover {
+    background-color: #04172d;
+}
+
+.caselist p:hover a {
+    color: #89e7ff;
+}
+
+/*文书签章页 end*/
+.tabbleoprate {
+    width: 785px;
+    height: 20px;
+    text-align: right;
+}
+
+.tabbleoprate a {
+    display: inline-block;
+    width: 60px;
+    height: 20px;
+    line-height: 20px;
+    margin-left: 30px;
+    color: #0ab7ff;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+.tabbleoprate a.oprateedit {
+    background-image: url("../img/oprateedit.png");
+    font-size: 14px;
+}
+
+.tabbleoprate a.opratesign {
+    background-image: url("../img/opratesign.png");
+    font-size: 14px;
+}
+
+.tabbleoprate a.opratedown {
+    background-image: url("../img/opratedown.png");
+    font-size: 14px;
+}
+
+.tabbleoprate a.oprateprint {
+    background-image: url("../img/oprateprint.png");
+    font-size: 14px;
+}
+
+
+.reportedit_content{
+    color: #0AB7FF;
+}
+.reportedit_content:hover{
+    color: #7ad8ff;
+}
+
+
+.contentbox {
+    width: 800px;
+    margin: 0 auto;
+    padding: 65px 100px;
+    background-color: #fff;
+}
+
+.contentbox2 {
+    width: 800px;
+    margin: 0 auto;
+    padding: 105px 100px;
+    background-color: #fff;
+}
+.saveall {
+    width: 90px;
+    height: 42px;
+    line-height: 42px;
+    border-radius: 5px;
+    margin: 30px auto 35px;
+    text-align: center;
+    color: #fff;
+    background: url('../img/saveall.png') no-repeat center;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.saveall:hover {
+    background-image: url('../img/savealled.png');
+}
+
+.signpage {
+    width: 100%;
+    background-color: #fff;
+}
+
+/*数据查询审批表*/
+.conheader .fujian {
+    font-size: 16px;
+    line-height: 25px;
+}
+
+.conheader .title {
+    line-height: 50px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.conheader .intime {
+    line-height: 30px;
+    text-align: right;
+}
+
+.conheader .intime input[name='intime'] {
+    width: 125px;
+    text-align: left;
+}
+
+.conheader input {
+    font-size: 16px;
+}
+
+textarea[name='shortcausetext'] {
+    height: 83px;
+    margin-top: 1px; /*vertical-align: bottom;*/
+}
+
+#checklist input[name='querynum'] {
+    text-align: left;
+    padding-left: 5px;
+}
+
+td.rangetime input {
+    width: 95px;
+}
+
+input[name='checksumsql'] {
+    width: 20px;
+}
+
+.tableblock {
+    position: relative;
+}
+
+.markseal_dadui {
+    display: none;
+    position: absolute;
+    width: 135px;
+    height: 135px;
+    background-image: url('../img/dadui_rotation_6.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    z-index: 10;
+}
+.markseal_fenju {
+    display: none;
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    background-image: url('../img/fenju_rotation_5.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    z-index: 10;
+}
+
+.markseal_agree {
+    display: none;
+    position: absolute;
+    width: 116px;
+    height: 135px;
+    background-image: url('../../../img/ajzx_qm/agree4.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    z-index: 10;
+}
+
+.sqr_markname {
+    display: none;
+    position: absolute;
+    width: 150px;
+    height: 80px;
+    background-image: url('../../../img/ajzx_qm/feng4.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 10;
+}
+
+.xzbm_markname {
+    display: none;
+    position: absolute;
+    width: 150px;
+    height: 80px;
+    background-image: url('../../../img/ajzx_qm/fang4.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 10;
+}
+
+.fgld_markname {
+    display: none;
+    position: absolute;
+    width: 150px;
+    height: 80px;
+    background-size: cover;
+    background-image: url('../../../img/ajzx_qm/wei4.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 10;
+}
+
+.checkmarktime {
+    display: none;
+    position: absolute;
+    bottom: 56px;
+}
+
+#checkmarktimesh {
+    left: 180px;
+}
+
+#checkmarktimesp {
+    right: 5px;
+}
+
+.checkmarktime input[name='suggesttimesh'], .checkmarktime input[name='suggesttimesp'] {
+    width: 110px;
+    background: none;
+}
+
+.checkmarktime input[name='year'] {
+    width: 40px;
+}
+
+.checkmarktime input[name='month'], .checkmarktime input[name='day'] {
+    width: 23px;
+}
+
+.checkmarkunit {
+    position: absolute;
+    bottom: 80px;
+    right: 5px;
+}
+
+textarea[name="checkmakenote"] {
+    height: 43px;
+    margin-top: 1px; /*vertical-align: bottom;*/
+}
+
+/*数据查询审批表 end*/
+/*监控措施报告书*/
+.conheader .top {
+    font-size: 16px;
+}
+
+.conheader .top p {
+    line-height: 25px;
+}
+
+.conheader .bottom {
+    height: 55px;
+    padding: 22px 10px;
+    font-weight: 500;
+    position: relative;
+}
+
+.conheader .bottom input {
+    font-size: 14px;
+}
+
+.conheader .bottom input[name='adminunit'] {
+    width: 220px;
+}
+
+.conheader .bottom input[name='intime'] {
+    width: 110px;
+}
+
+#reportlist td input {
+    text-align: left;
+    padding-left: 5px;
+}
+
+textarea[name='basicinfo'] {
+    height: 398px;
+    margin-top: 1px; /*vertical-align: bottom;*/
+}
+
+textarea[name="makenote"] {
+    height: 83px;
+    margin-top: 1px; /*vertical-align: bottom;*/
+}
+
+.sumabove input {
+    width: 30px;
+}
+
+input[name='mannsql'] {
+}
+
+input[checked='checked'] {
+    border-color: #f00;
+    appearance: auto;
+}
+
+input[name='mannsql'], input[name='monitorsql'] {
+    border: 1px solid #000;
+    width: 10px;
+    height: 10px;
+    position: relative;
+    top: 1px;
+    margin-right: 5px;
+}
+
+input[name='manntimestart'], input[name='manntimeend'] {
+    width: 110px;
+    height: 18px;
+    line-height: 18px;
+}
+
+#tableReport .reportrantime input {
+    font-size: 12px;
+}
+
+input[name='years'], input[name='yeare'] {
+    width: 30px;
+}
+
+input[name='months'], input[name='days'], input[name='monthe'], input[name='daye'] {
+    width: 15px;
+}
+.unitsuggest{
+    position: relative;
+}
+
+.reportmarktime {
+    display: none;
+    position: relative;
+    bottom: 110px;
+}
+
+#reportmarktimeunit {
+    left: 170px;
+}
+
+#reportmarktimenetwork {
+    right: 5px;
+}
+
+.reportmarktime input[name='suggesttimeunit'], .reportmarktime input[name='suggesttimenetwork'] {
+    width: 110px;
+    background: none;
+}
+
+/*监控措施报告书 end*/

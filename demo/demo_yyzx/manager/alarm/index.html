@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>警报</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/style2.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+    <script type="text/javascript" src="js/jquery-1.12.4-min.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/value.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/comm.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/comm_util.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/time_utils.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/md5.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/aes.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/aesUtil.js"></script>
+
+
+    <script type="text/javascript" src="../../js/page_yjxt.js"></script>
+    <script type="text/javascript" src="js/page3.js"></script>
+</head>
+<body>
+<div id="all_screen" class="all_screen" style="width: 100%;height: 100%;background-color:#011024;">
+    <div id="page_header">
+        <div style="float: left;width: 100%;height: 0.48rem;position: relative;">
+            <div style="float:left;left:0.05rem;top:0.15rem;width: 1.1rem;height: 0.18rem;line-height:0.18rem;font-size:0.18rem;text-align:right;color:#0AB7FF;position: absolute">
+                您好，
+            </div>
+            <div style="float: left;left:1.15rem;top:0.15rem;width: 1.06rem;height: 0.18rem;line-height: 0.18rem;font-size: 0.18rem;text-align: left;color: #7AD8FF;position: absolute;">
+                西湖公安
+            </div>
+            <div id="time_show"
+                 style="float: left;left:2.21rem;top:0.15rem;width: 2.49rem;height: 0.18rem;line-height: 0.18rem;font-size: 0.18rem;text-align: left;color:#0AB7FF;position: absolute; ">
+                xxxx年x月xx日 周x xx:xx:xx
+            </div>
+            <div style="float: left;left:7.245rem;top:0.19rem;width:4.71rem;height: 0.35rem;line-height: 0.35rem;font-size: 0.35rem;font-weight: bold;text-align: center;color:#0AB7FFFF;position: absolute;">
+                分局预警指令评判中心
+            </div>
+            <div style="float: left;left:14.85rem;top:0.15rem;width:0.37rem;height: 0.18rem;line-height: 0.18rem;font-size: 0.18rem;text-align: center;color:#0AB7FFFF;position: absolute;">
+                首页
+            </div>
+            <div style="float: left;left:15.52rem;top:0.15rem;width:0.37rem;height: 0.18rem;line-height: 0.18rem;font-size: 0.18rem;text-align: center;color:#0AB7FFFF;position: absolute;">
+                报表
+            </div>
+            <div style="float: left;left:16.19rem;top:0.15rem;width:0.37rem;height: 0.18rem;line-height: 0.18rem;font-size: 0.18rem;text-align: center;color:#0AB7FFFF;position: absolute;">
+                日志
+            </div>
+            <div style="float: left;left:16.86rem;top:0.15rem;width:0.74rem;height: 0.18rem;line-height: 0.18rem;font-size: 0.18rem;text-align: center;color:#0AB7FFFF;position: absolute;">
+                使用手册
+            </div>
+            <div style="float: left;left:17.9rem;top:0.14rem;width:0.2rem;height: 0.2rem;background:url(../../../img/yjxt_common/icon_news.png) no-repeat center center;background-size:cover;position: absolute;" onclick="dialogMSG()"></div>
+            <div style="float: left;left:18.4rem;top:0.14rem;width:0.2rem;height: 0.2rem;background:url(../../../img/yjxt_common/icon_dropout.png) no-repeat center center;background-size:contain;position: absolute;"></div>
+        </div>
+        <div style="float: left;width: 100%;height: 0.42rem;position: relative;">
+            <div class="page_header_img" style="float: left;left:0.4rem;top:0.36rem  ;width:1.7rem;height:0.1rem;background:url(../../../img/yjxt_common/decoration.png) no-repeat center center;background-size:contain;position: absolute;"></div>
+            <div class="page_header_img" style="float: right;right:0.4rem;top:0.36rem  ;width:1.7rem;height:0.1rem;background:url(../../../img/yjxt_common/decoration.png) no-repeat center center;background-size:contain;position: absolute;"></div>
+
+        </div>
+    </div>
+    <div id="page_time">
+        <div style="float: left;left:0;top:0.5rem;width:0.8rem;height:0.4rem;position: absolute;">
+            <div id="rank_img_0"  onclick="rankList(0)"></div>
+            <div id="rank_img_0_on" onclick="rankList(0)" hidden></div>
+            <div class="page_time_content" onclick="rankList(0)">
+                日数据
+            </div>
+        </div>
+        <div style="float: left;left:1.1rem;top:0.5rem;width:0.8rem;height:0.4rem;position: absolute;">
+            <div id="rank_img_1"  onclick="rankList(1)"></div>
+            <div id="rank_img_1_on"  onclick="rankList(1)" hidden></div>
+            <div class="page_time_content" onclick="rankList(1)">
+                周数据
+            </div>
+        </div>
+        <div style="float: left;left:2.2rem;top:0.5rem;width:0.8rem;height:0.4rem;position: absolute;">
+            <div id="rank_img_2"  onclick="rankList(2)"></div>
+            <div id="rank_img_2_on"  onclick="rankList(2)" hidden></div>
+            <div class="page_time_content" onclick="rankList(2)">
+                月数据
+            </div>
+        </div>
+        <div style="float: left;left:3.3rem;top:0.5rem;width:3.3rem;height: 0.45rem;border:1px solid #036E9A;position: absolute; ">
+            <div style="float: left;margin-left:0.2rem;margin-top:0.125rem;width: 0.2rem;height:0.2rem;background: url(../../../img/yjxt_common/icon_time.png) no-repeat center center;background-size:contain;"></div>
+            <!--                //2021-02-20-->
+            <div style="float:left;margin-left: 0.2rem;margin-top:0.125rem;width:1.2rem;height:0.2rem;line-height: 0.2rem;font-size:0.16rem;color:#0AB7FF; ">
+                <input id="startTime1" value="2021" style="width:0.4rem;height:0.2rem;line-height: 0.2rem;font-size:0.16rem;background-color:rgba(0,0,0,0);color: #0AB7FF;border: none;padding: 0; " />-
+                <input id="startTime2" value="01" style="width:0.2rem;height:0.2rem;line-height: 0.2rem;font-size:0.16rem;background-color:rgba(0,0,0,0);color: #0AB7FF;border: none;padding: 0; " />-
+                <input id="startTime3" value="19" style="width:0.2rem;height:0.2rem;line-height: 0.2rem;font-size:0.16rem;background-color:rgba(0,0,0,0);color: #0AB7FF;border: none;padding: 0; " />
+            </div>
+            <div style="float:left;margin-left: 0;margin-top:0.125rem;width:0.2rem;height:0.2rem;line-height: 0.2rem;font-size:0.16rem;color: #0AB7FF; ">
+                至
+            </div>
+            <!--            //2021-03-04-->
+            <div style="float:left;margin-left: 0.1rem;margin-top:0.125rem;width:1.2rem;height:0.2rem;line-height: 0.2rem;font-size:0.16rem;color: #0AB7FF; ">
+                <input id="endTime1" value="2021" style="width:0.4rem;height:0.2rem;line-height: 0.2rem;font-size:0.16rem;background-color:rgba(0,0,0,0);color: #0AB7FF;border: none;padding: 0; " />-
+                <input id="endTime2" value="06" style="width:0.2rem;height:0.2rem;line-height: 0.2rem;font-size:0.16rem;background-color:rgba(0,0,0,0);color: #0AB7FF;border: none;padding: 0; " />-
+                <input id="endTime3" value="19" style="width:0.2rem;height:0.2rem;line-height: 0.2rem;font-size:0.16rem;background-color:rgba(0,0,0,0);color: #0AB7FF;border: none;padding: 0; " />
+            </div>
+        </div>
+        <div style="float: right;right:0;bottom:0.18rem;width:2rem;height: 0.2rem;line-height: 0.2rem;font-size: 0.16rem;text-align:right;color:#ADF7AD;position: absolute;">
+            注： 点击数字查看详情
+        </div>
+    </div>
+    <div id="area_list">
+        <!--          要先让内容渲染出来,所以这里先写content的div-->
+        <div id="page_content_ALL">
+            <div id="page_content" >
+                <!--            //渲染-->
+            </div>
+
+
+
+
+        </div>
+        <div id="page_content_header">
+            <div style="float: left;width: 100%;height: 100%;position:relative;">
+                <div class="page_content_header_str" style="left:0;margin-left: 0;width: 0.8rem;position: absolute;">
+                    序号
+                </div>
+                <div class="page_content_header_str" style="left:0.8rem;margin-left: 0;width: 2.7rem;position: absolute;">
+                    单位
+                </div>
+                <div class="page_content_header_str" style="left:3.5rem;margin-left: 0;width: 1.25rem;position: absolute;">
+                    超时反馈
+                </div>
+                <div class="page_content_header_str" style="left:4.75rem;margin-left: 0;width: 1.25rem;position: absolute;">
+                    异常热词
+                </div>
+                <div class="page_content_header_str" style="left:6rem;margin-left: 0;width: 1.25rem;position: absolute;">
+                    高危异常
+                </div>
+                <div class="page_content_header_str" style="left:7.25rem;margin-left: 0;width: 1.5rem;position: absolute;">
+                    已被骗例案
+                </div>
+                <div class="page_content_header_str" style="left:8.75rem;margin-left: 0;width: 1.25rem;position: absolute;">
+                    单次预警
+                </div>
+                <div class="page_content_header_str" style="left:10rem;margin-left: 0;width: 1.25rem;position: absolute;">
+                    多次预警
+                </div>
+                <div class="page_content_header_str" style="left:11.25rem;margin-left: 0;width: 1rem;position: absolute;">
+                    未接通
+                </div>
+                <div class="page_content_header_str" style="left:12.25rem;margin-left: 0;width: 1.25rem;position: absolute;">
+                    未接通率
+                </div>
+                <div class="page_content_header_str" style="left:13.5rem;margin-left: 0;width: 1rem;position: absolute;">
+                    未承认
+                </div>
+                <div class="page_content_header_str" style="left:14.5rem;margin-left: 0;width: 1.25rem;position: absolute;">
+                    未承认率
+                </div>
+                <div class="page_content_header_str" style="left:15.75rem;margin-left: 0;width: 1rem;position: absolute;">
+                    指令数
+                </div>
+                <div class="page_content_header_str" style="left:16.75rem;margin-left: 0;width: 1.25rem;position: absolute;">
+                    受害人数
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="bottom_page">
+
+        <div style="float: left;left:5.19rem;bottom:0.4rem;width:0.71rem;height:0.15rem;position: absolute;">
+            <div class="bottom_page_count" >
+                共
+            </div>
+            <div class="bottom_page_count" id="bottom_page_column_All"
+                 style="width:0.43rem;text-align: center">
+                0
+            </div>
+            <div class="bottom_page_count" style="text-align:right;">
+                条
+            </div>
+        </div>
+
+        <div id="select_page_ALL" style="float: left;left:6.67rem;bottom:0.3rem;width:auto;height:0.36rem;position: absolute;">
+            <div id="pre_page" class="bottom_page_yema select_page" style="margin-left:0;width: 0.72rem;height: 0.36rem;line-height:0.36rem;font-size:0.18rem;text-align:center;color:#0AB7FFFF;border: 1px solid #036E9A;">
+                上一页
+            </div>
+            <div id="select_page_num" style="float: left;width:auto;height: 0.36rem;"></div>
+<!--            <div class="bottom_page_yema select_page" onclick="selectPageCount(1)">-->
+<!--                1-->
+<!--            </div>-->
+<!--            <div class="bottom_page_yema select_page" onclick="selectPageCount(2)">-->
+<!--                2-->
+<!--            </div>-->
+<!--            <div class="bottom_page_yema select_page" onclick="selectPageCount(3)">-->
+<!--                3-->
+<!--            </div>-->
+<!--            <div class="bottom_page_yema select_page" >-->
+<!--                ...-->
+<!--            </div>-->
+<!--            <div class="bottom_page_yema select_page" >-->
+<!--                8-->
+<!--            </div>-->
+            <div id="next_page" class="bottom_page_yema select_page" style="width: 0.72rem;">
+                下一页
+            </div>
+            <div id="last_page" class="bottom_page_yema select_page" style="width: 0.6rem;">
+                末页
+            </div>
+            <div class="bottom_page_yema" style="width: 0.71rem;">
+                跳转至
+            </div>
+            <input id="navigate_page" class="bottom_page_yema select_page" style="float: left;margin-left:-1px;width: 0.6rem;height: 0.36rem;background-color:rgba(0,0,0,0);border: 1px solid #036E9A;;padding: 0;" />
+            <div  class="bottom_page_yema" style="float: left;margin-left:-1px;width: 0.32rem;height: 0.36rem;line-height:0.36rem;font-size:0.18rem;text-align:center;color:#0AB7FFFF;border: 1px solid #036E9A;">
+                页
+            </div>
+            <div id="pagecount_navigator" class="bottom_page_yema select_page" style="float: left;margin-left:-1px;width: 0.4rem;height: 0.36rem;line-height:0.36rem;font-size:0.18rem;text-align:center;border: 1px solid #036E9A;">
+                GO
+            </div>
+        </div>
+
+        <div id="page_right" style="float: left;left:13.15rem;bottom:0.28rem;width:1rem;height:0.36rem;border: 1px solid #036E9A;position: absolute;">
+            <div id="bottom_page_column" class="bottom_page_select_content" style="margin-left:0.12rem;width:0.2rem;">
+                0
+            </div>
+            <div class="bottom_page_select_content" style="margin-left:0;width:0.46rem;">
+                条/页
+            </div>
+            <div id="bottom_page_select"></div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
+
+
+<!--
+<div class="page_content_header_str" style="left:0;margin-left: 0;width: 0.78rem;position: absolute;">
+    序号
+</div>
+<div class="page_content_header_str" style="left:0.79rem;margin-left: -1px;width: 4.83rem;position: absolute;">
+    单位
+</div>
+<div class="page_content_header_str" style="left:5.62rem;margin-left: -1px;width: 3.08rem;position: absolute;">
+    超时反馈
+</div>
+<div class="page_content_header_str" style="left:8.7rem;margin-left: -1px;width: 3.08rem;position: absolute;">
+    异常热词
+</div>
+<div class="page_content_header_str" style="left:11.78rem;margin-left: -1px;width: 3.08rem;position: absolute;">
+    未接通
+</div>
+<div class="page_content_header_str" style="left:14.86rem;margin-left: -1px;width: 3.08rem;position: absolute;">
+    未承认
+</div>-->

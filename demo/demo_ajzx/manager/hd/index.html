@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>提请公安机关技术侦察部门数据查询审批表</title>
+    <script src="js/jquery-1.12.4-min.js"></script>
+    <script>
+        $(function () {
+            $("#area_header_check").load('header.html');
+        });
+    </script>
+</head>
+<body>
+<div id="all_screen">
+    <div id="all_content">
+        <!--  头部      -->
+        <div class="area-header" id="area_header_check"></div>
+        <!--  操作      -->
+        <div class="tabbleoprate" id="checkoprate">
+            <a href="javascript:void(0);" class="oprateed" id="checked"></a>
+            <a href="javascript:void(0);" class="oprateedit" id="checkedit">编辑</a>
+            <a href="javascript:void(0);" class="opratesign" id="checksign">签章</a>
+            <a href="javascript:void(0);" class="opratedown" id="checkdown">下载</a>
+            <a href="javascript:void(0);" class="oprateprint" id="checkprint">打印</a>
+        </div>
+        <!--  表格      -->
+        <div class="contentbox" id="tableCheck">
+            <div class="conheader">
+                <p class="fujian">附件：</p>
+                <p class="title">提请公安机关技术侦察部门数据查询审批表</p>
+                <p class="intime">填表时间：<input type="text" name="intime" id="checkintime" value="" readonly="readonly"></p><!--2020年09月08日-->
+            </div>
+            <div class="tableblock">
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <td colspan="2">提请单位</td>
+                            <td colspan="6"><input type="text" name="adminunit" id="checkadminunit" value="杭州市公安局西湖区分局刑侦大队" readonly="readonly"></td>
+                            <td colspan="2">提请人</td>
+                            <td colspan="7"><input type="text" name="sponsor" id="checksponsor" value="王磊" readonly="readonly"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">联系电话</td>
+                            <td colspan="6"><input type="text" name="callnum" id="checkcallnum" value="719697" readonly="readonly"></td>
+                            <td colspan="2">反馈方式</td>
+                            <td colspan="7"><input type="text" name="feedback" id="checkfeedback" value="邮件" readonly="readonly"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="aligntitle">查<br>询<br>事<br>由</td>
+                            <td colspan="16">
+                                <!--<textarea name="shortcausetext" id="shortcausetext" ></textarea>-->
+                                <div name="basicinfo" id="djzh" onpaste="setpaste(this)" contenteditable="false" class="name1" style="text-indent:30px;text-align:left;white-space:normal;height: 105px;overflow: auto;"></div>
+                            </td>
+                        </tr>
+                        <tr class="tableheight">
+                            <td class="aligntitle padtitle">查<br>询<br>内<br>容</td>
+                            <td colspan="5">查询目标</td>
+                            <td colspan="4">查询数据类型</td>
+                            <td colspan="7">查询时间范围</td>
+                        </tr>
+                    </thead>
+                    <tbody id="checklist">
+                         <!-- 用接口的模板-->
+                        <!--<tr>
+                            <td rowspan="17"></td>
+                            <td colspan="5"><input type="text" name="querynum" value="15011422938（北京）" readonly="readonly"></td>
+                            <td colspan="4"><input type="text" value="电信用户通话记录信息" readonly="readonly"></td>
+                            <td colspan="6" class="rangetime"><input type="text" name="qtimestart" value="2020年07月08日" readonly="readonly">至<input type="text" name="qtimeend" value="2020年09月08日" readonly="readonly"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="5"><input type="text" name="querynum" value="15011422938（北京）" readonly="readonly"></td>
+                            <td colspan="4"><input type="text" value="电信用户登记记录信息" readonly="readonly"></td>
+                            <td colspan="6" class="rangetime">无</td>
+                        </tr>-->
+                        <tr>
+                            <td rowspan="17"></td>
+                            <td colspan="5"><input type="text" name="querynum" value="" readonly="readonly"></td>
+                            <td colspan="4"><input type="text" class="querynum1" value="电信用户通话记录信息" readonly="readonly"></td>
+                            <td colspan="7" class="rangetime">
+                              <!--  <input type="text" name="qtimestart4" value="" readonly="readonly">年<input type="text" name="qtimestart2" value="" readonly="readonly">月<input type="text" name="qtimestart2" value="" readonly="readonly">日
+                                至
+                                <input type="text" name="qtimeend4" value="" readonly="readonly">年<input type="text" name="qtimeend2" value="" readonly="readonly">月<input type="text" name="qtimeend2" value="" readonly="readonly">日-->
+                                <input type="number" name="years"
+                                       oninput="if(value.length>4)value=value.slice(0,4)"
+                                       readonly="readonly">年<input type="number"
+                                                                   name="months"
+                                                                   oninput="if(value.length>2)value=value.slice(0,2)"
+                                                                   readonly="readonly">月<input
+                                    type="number" name="days" oninput="if(value.length>2)value=value.slice(0,2)"
+                                    readonly="readonly">日&nbsp;至<input type="number" name="yeare"
+                                                                       oninput="if(value.length>4)value=value.slice(0,4)"
+                                                                       readonly="readonly">年<input type="number"
+                                                                                                   name="monthe"
+                                                                                                   oninput="if(value.length>2)value=value.slice(0,2)"
+                                                                                                   readonly="readonly">月<input
+                                    type="number" name="daye" oninput="if(value.length>2)value=value.slice(0,2)"
+                                    readonly="readonly">日
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5"><input type="text" name="querynum" value="" readonly="readonly"></td>
+                            <td colspan="4"><input type="text" value="电信用户登记记录信息" readonly="readonly"></td>
+                            <td colspan="7" class="rangetime"><input type="text" name="qtimestart" value="" readonly="readonly"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="5"><input type="text" name="querynum" value="" readonly="readonly"></td>
+                            <td colspan="4"><input type="text" class="querynum2" value="" readonly="readonly"></td>
+                            <td colspan="7" class="rangetime"><input type="text" name="qtimestart" value="" readonly="readonly"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="5"><input type="text" name="querynum" value="" readonly="readonly"></td>
+                            <td colspan="4"><input type="text" value="" readonly="readonly"></td>
+                            <td colspan="7" class="rangetime"><input type="text" name="qtimestart" value="" readonly="readonly"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="5"><input type="text" name="querynum" value="" readonly="readonly"></td>
+                            <td colspan="4"><input type="text" class="querynum3" value="" readonly="readonly"></td>
+                            <td colspan="7" class="rangetime"><input type="text" name="qtimestart" value="" readonly="readonly"></td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="5"><input type="text" name="querynum" value="" readonly="readonly"></td>
+                            <td colspan="4"><input type="text" value="" readonly="readonly"></td>
+                            <td colspan="7" class="rangetime"><input type="text" name="qtimestart" value="" readonly="readonly"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="5"><input type="text" name="querynum" value="" readonly="readonly"></td>
+                            <td colspan="4"><input type="text" class="querynum4" value="" readonly="readonly"></td>
+                            <td colspan="7" class="rangetime"><input type="text" name="qtimestart" value="" readonly="readonly"></td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="5"><input type="text" name="querynum" value="" readonly="readonly"></td>
+                            <td colspan="4"><input type="text" value="" readonly="readonly"></td>
+                            <td colspan="7" class="rangetime"><input type="text" name="qtimestart" value="" readonly="readonly"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="5"><input type="text" name="querynum" value="" readonly="readonly"></td>
+                            <td colspan="4"><input type="text" class="querynum5" value="" readonly="readonly"></td>
+                            <td colspan="7" class="rangetime"><input type="text" name="qtimestart" value="" readonly="readonly"></td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="5"><input type="text" name="querynum" value="" readonly="readonly"></td>
+                            <td colspan="4"><input type="text" value="" readonly="readonly"></td>
+                            <td colspan="7" class="rangetime"><input type="text" name="qtimestart" value="" readonly="readonly"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="5"><input type="text" name="querynum" value="" readonly="readonly"></td>
+                            <td colspan="4"><input type="text" class="querynum6" value="" readonly="readonly"></td>
+                            <td colspan="7" class="rangetime"><input type="text" name="qtimestart" value="" readonly="readonly"></td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="5"><input type="text" name="querynum" value="" readonly="readonly"></td>
+                            <td colspan="4"><input type="text" value="" readonly="readonly"></td>
+                            <td colspan="7" class="rangetime"><input type="text" name="qtimestart" value="" readonly="readonly"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="5"><input type="text" name="querynum" value="" readonly="readonly"></td>
+                            <td colspan="4"><input type="text" class="querynum7" value="" readonly="readonly"></td>
+                            <td colspan="7" class="rangetime"><input type="text" name="qtimestart" value="" readonly="readonly"></td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="5"><input type="text" name="querynum" value="" readonly="readonly"></td>
+                            <td colspan="4"><input type="text" value="" readonly="readonly"></td>
+                            <td colspan="7" class="rangetime"><input type="text" name="qtimestart" value="" readonly="readonly"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="5"><input type="text" name="querynum" value="" readonly="readonly"></td>
+                            <td colspan="4"><input type="text" class="querynum8" value="" readonly="readonly"></td>
+                            <td colspan="7" class="rangetime"><input type="text" name="qtimestart" value="" readonly="readonly"></td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="5"><input type="text" name="querynum" value="" readonly="readonly"></td>
+                            <td colspan="4"><input type="text" value="" readonly="readonly"></td>
+                            <td colspan="7" class="rangetime"><input type="text" name="qtimestart" value="" readonly="readonly"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="16">以上共 <input type="text" name="checksumsql" id="checksumsql" maxlength="1" value="" readonly="readonly">个查询目标（大写）</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr class="tableheight90">
+                            <td class="aligntitle">审<br>核<br>意<br>见</td>
+                            <td colspan="7">
+                                <!--<textarea name="shortcausetext"  maxlength="70"></textarea>-->
+                                <div name="basicinfo" id="shyj" onpaste="setpaste(this)" contenteditable="false" class="name1" style="text-indent:30px;text-align:left;white-space:normal;height: 100px;overflow: auto;"></div>
+                                <div class="signsuggest" id="checksuggestsh"  >
+                                    <p class="markseal"></p>
+                                    <p class="markname"></p>
+                                </div>
+                                <div class="checkmarktime" id="checkmarktimesh">
+                                    <!--   if  有没有签章     -->
+                                    <!--<input type="text" name="suggesttimesh" id="checksuggesttimesh" value="2020年09月08日" readonly="readonly"  style="background-color:transparent">-->
+                                    <!--   else  有没有签章     -->
+                                    <div id="shyj_qm_year" style="float:left;width: 40px;height: 25px;position: relative;">
+                                        <div class="qm_year_1" style="float: left;width: 10px;height: 25px;position: absolute"></div>
+                                        <div class="qm_year_2" style="float: left;left:10px;width: 10px;height: 25px;position: absolute"></div>
+                                        <div class="qm_year_3" style="float: left;left:20px;width: 10px;height: 25px;position: absolute"></div>
+                                        <div class="qm_year_4" style="float: left;left:30px;width: 10px;height: 25px;position: absolute"></div>
+                                    </div>
+                                    <div style="float:left;">年</div>
+                                    <div id="shyj_qm_month" style="float:left;width: 20px;height: 25px;position: relative;">
+                                        <div class="qm_month_1" style="float: left;width: 10px;height: 25px;position: absolute"></div>
+                                        <div class="qm_month_2" style="float: left;left:10px;width: 10px;height: 25px;position: absolute"></div>
+                                    </div>
+                                    <div style="float:left;">月</div>
+                                    <div id="shyj_qm_day" style="float:left;width: 20px;height: 25px;position: relative;">
+                                        <div class="qm_day_1" style="float: left;width: 10px;height: 25px;position: absolute"></div>
+                                        <div class="qm_day_2" style="float: left;left:10px;width: 10px;height: 25px;position: absolute"></div>
+                                    </div>
+                                    <div style="float:left;">日</div>
+                                </div>
+                            </td>
+                            <td class="aligntitle">审<br>批<br>意<br>见</td>
+                            <td colspan="8">
+                                <!--<textarea name="shortcausetext" id=""></textarea>-->
+                                <div name="basicinfo" id="spyj" onpaste="setpaste(this)" contenteditable="false" class="name1" style="text-indent:30px;text-align:left;white-space:normal;height: 100px;overflow: auto;"></div>
+
+                                <div class="signsuggest" id="checksuggestsp">
+
+                                   <!-- <p class="markseal1"></p>
+                                    <p class="markname1"></p>-->
+                                </div>
+                                <!--<p class="checkmarkunit">（单位印）</p>-->
+                                <div class="checkmarktime" id="checkmarktimesp">
+                                    <!--   if  有没有签章     -->
+                                    <!--<input type="text" name="suggesttimesp" id="checksuggesttimesp" value="2020年09月08日" readonly="readonly">-->
+                                    <!--   else  有没有签章     -->
+                                    <!--<input type="text"  name="year" oninput="if(value.length>4)value=value.slice(0,4)">年
+                                    <input type="text" name="month" oninput="if(value.length>2)value=value.slice(0,2)">月
+                                    <input type="text" name="day" oninput="if(value.length>2)value=value.slice(0,2)">日-->
+
+<!--                                    <div id="spyj_qm_year" style="float:left;width: 40px;height: 25px;position: relative;">-->
+<!--                                        <div class="qm_year_1" style="float: left;width: 10px;height: 25px;position: absolute"></div>-->
+<!--                                        <div class="qm_year_2" style="float: left;left:10px;width: 10px;height: 25px;position: absolute"></div>-->
+<!--                                        <div class="qm_year_3" style="float: left;left:20px;width: 10px;height: 25px;position: absolute"></div>-->
+<!--                                        <div class="qm_year_4" style="float: left;left:30px;width: 10px;height: 25px;position: absolute"></div>-->
+<!--                                    </div>-->
+<!--                                    <div style="float:left;">年</div>-->
+<!--                                    <div id="spyj_qm_month" style="float:left;width: 20px;height: 25px;position: relative;">-->
+<!--                                        <div class="qm_month_1" style="float: left;width: 10px;height: 25px;position: absolute"></div>-->
+<!--                                        <div class="qm_month_2" style="float: left;left:10px;width: 10px;height: 25px;position: absolute"></div>-->
+<!--                                    </div>-->
+<!--                                    <div style="float:left;">月</div>-->
+<!--                                    <div id="spyj_qm_day" style="float:left;width: 20px;height: 25px;position: relative;">-->
+<!--                                        <div class="qm_day_1" style="float: left;width: 10px;height: 25px;position: absolute"></div>-->
+<!--                                        <div class="qm_day_2" style="float: left;left:10px;width: 10px;height: 25px;position: absolute"></div>-->
+<!--                                    </div>-->
+<!--                                    <div style="float:left;">日</div>-->
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="aligntitle">备<br>注</td>
+                            <td colspan="16">
+<!--                                <textarea name="checkmakenote" id="checkmakenote"  style="float: top"></textarea>-->
+                                <div name="basicinfo" id="bz" onpaste="setpaste(this)" contenteditable="false" class="name1" style="text-indent:30px;text-align:left;white-space:normal;height: 55px;overflow: auto;"></div>
+                            </td> <!--maxlength="70"-->
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        <!--  保存      -->
+        <div id="page_button" style="float:left;width:100%;height:1.2rem;position: relative;" onclick="convert()">
+            <div id="button_save" style="float: left;left:9.15rem;top:0.42rem;width:0.9rem;height:0.42rem;line-height:0.42rem;background:url(img/save.png) no-repeat center center;font-size:0.14rem;text-align:center;color:#ffffff;position: absolute;" onclick="save()" hidden>
+                保存
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/html2canvas.js"></script>
+<script src="js/FileSaver.js"></script>
+
+</body>
+</html>

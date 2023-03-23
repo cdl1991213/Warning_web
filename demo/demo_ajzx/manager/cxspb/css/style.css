@@ -1,0 +1,12 @@
+.page_header_navigate {
+    float: left;
+    height: 0.18rem;
+    line-height: 0.18rem;
+    font-size: 0.18rem;
+    text-align: center;
+    color: #0AB7FFFF;
+    position: absolute;
+}
+.page_header_navigate:hover{
+    color: #7ad8ff;
+}

@@ -1,0 +1,99 @@
+@charset "UTF-8";
+html { -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; height: 100%; }
+body { margin: 0; padding: 0; -webkit-overflow-scrolling: touch; font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; background-image: url('../img/background.jpg'); background-size:cover;-webkit-background-size: cover;-moz-background-size: cover;}
+* { -webkit-box-sizing: border-box; box-sizing: border-box; }
+h1, h2, h3, h4, h5, form, p, ul, input { margin: 0; padding: 0; }
+input{ appearance: none; outline:none; background:none; text-align: center; border:none;}
+input[type=button], input[type=submit] { -webkit-appearance: none; outline: none; }
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; }
+input[type="number"] { -moz-appearance: textfield; }
+input::-webkit-input-placeholder{ color:#00ccff;}
+input:focus::-webkit-input-placeholder{color: transparent;}
+input:focus::-moz-placeholder{color: transparent;}
+input:focus::-ms-input-placeholder{color: transparent;}
+:focus { outline: 0; }
+li { padding: 0; margin: 0; line-height: 180%; list-style-type: none; }
+a { text-decoration: none;}
+a:hover{ text-decoration: none; }
+u { text-decoration: none; }
+.clear { clear: both; height: 0; font-size: 0; line-height: 0; }
+.clearfix:after,.clearfix:before { content: ""; display: table;}
+.clearfix:after { clear: both;}
+.clearfix { *zoom: 1;}
+.lf{ float:left;}
+.rt{ float:right;}
+.height35{ width:100%; height:0.35rem;}
+table { width: 100%; line-height: 0.25rem; text-align: center; border:0.01rem solid #000; font-size:0.12rem; border-collapse: collapse; border-spacing: 0; padding:0.05rem; background-color:#fff; table-layout: fixed;}
+table tr td { border:0.01rem solid #000; padding:0.01rem 0;}
+table input{ outline: none; border:none; width:98%; height:0.23rem; line-height:0.23rem; margin:0 auto; color:#000; font-size:0.12rem; text-align:center; background-color:#fff;}
+table textarea{ resize:none; outline:none; border:none; width: 98%; height: 98%; line-height: 0.2rem; font-size:0.12rem; text-align: left; overflow: hidden; background-color:#fff; text-overflow:ellipsis;}
+#tableReport table,#tableReport table input,#tableReport table textarea{ font-size:0.14rem;}
+table .aligntitle{ line-height: 0.16rem;}
+table .tableheight90{ height:0.9rem;}
+table .lefttitle{ text-align: left; padding-left:0.05rem;}
+table .padtitle{ padding-top:0.05rem; padding-bottom:0.05rem;}
+table .lineheight20{ line-height: 0.2rem;}
+@media print { body{-webkit-print-color-adjust:exact;}}
+@page { size: auto; margin: 0;}
+/*通用样式 end*/
+
+/*头部样式*/
+/*.area-header .header{ width:100%; height:1rem;color:#0ab7ff; font-size:0.18rem; background:url('../img/headerbg.png') no-repeat center; overflow:hidden; background-size: 100%;}
+.area-header .header a{ color:#0ab7ff; }
+.header_left{ float:left; line-height:0.5rem;}
+.header_left_unit{ color:#7ad8ff; margin-right:0.35rem; }
+.week{ margin:0 0.1rem; }
+.header_right{ float:right; overflow: hidden;}
+.header_right li{ float:left; height:0.5rem; line-height:0.5rem; text-align: center; margin:0 0.1rem;}
+.header_right li:hover a{ color:#7ad8ff; text-decoration: none;}
+.header_right li.active a{ font-weight:bold;}*/
+
+
+/*文书签章页 end*/
+.tabbleoprate{  margin-left: 5.61rem;margin-top: 0.6rem; margin-bottom: 0.17rem;width:8rem; height:0.2rem;text-align:right;}
+.tabbleoprate a{ float: left;display:inline-block; width:0.6rem; height:0.2rem; line-height:0.2rem; margin-left:0.3rem; color:#0ab7ff; background-repeat:no-repeat;background-size: contain; background-position:0 0;font-size: 0.16rem}
+.tabbleoprate a.oprateed{ float: left;margin-left: 0;background-image: url("../img/icon_return.png")}
+.tabbleoprate a.oprateedit{ float: left;margin-left: 4.1rem;background-image: url("../img/oprateedit.png")}
+.tabbleoprate a.opratesign{ background-image:url("../img/opratesign.png");}
+.tabbleoprate a.opratedown{ background-image:url("../img/opratedown.png");}
+.tabbleoprate a.oprateprint{ background-image:url("../img/oprateprint.png");}
+.contentbox{ width:800px;margin:0 auto; padding:80px 100px; background-color:#fff;}
+.saveall{ width:0.9rem; height:0.42rem; line-height:0.42rem; border-radius:0.05rem; margin:0.3rem auto 0.35rem; text-align:center;font-size: 0.18rem; color:#fff; background:url('../img/saveall.png') no-repeat center; cursor:pointer; transition:all .3s;}
+.saveall:hover{ background-image:url('../img/savealled.png');}
+.signpage{ width:100%; background-color:#fff; }
+/*数据查询审批表*/
+.conheader .fujian{ font-size:16px; line-height: 25px;}
+.conheader .title{ line-height: 50px; font-size:26px; text-align: center;}
+.conheader .intime{ line-height:30px; font-size: 16px;text-align: right;}
+.conheader .intime input[name='intime']{ width:125px; text-align: left;}
+.conheader input{ font-size:16px;}
+textarea[name='shortcausetext']{ height:83px; margin-top:1px; /*vertical-align: bottom;*/}
+#checklist input[name='querynum']{ text-align: left; }
+/*td.rangetime input{ text-align: left; }*/
+/*td.rangetime input{ width:100px;}*/
+/*td.rangetime input[name='qtimestart4']{ width:34px;}*/
+/*td.rangetime input[name='qtimestart2']{ width:18px;}*/
+/*td.rangetime input[name='qtimeend4']{ width:34px;}*/
+/*td.rangetime input[name='qtimeend2']{ width:18px;}*/
+input[name='years'], input[name='yeare'] {
+    width: 33px;
+}
+input[name='months'], input[name='days'], input[name='monthe'], input[name='daye'] {
+    width: 18px;
+}
+input[name='checksumsql']{ width:20px;}
+.tableblock{ position:relative;}
+.markseal{display:none; position:absolute; width:130px; height:130px; background-image:url('../img/gz/dadui_rotation_6.png'); background-repeat:no-repeat; background-size: contain;background-position:center; z-index:10;}
+.markseal1{display:none; position:absolute; width:130px; height:130px; background-image:url('../img/gz/fenju_rotation_3.png'); background-repeat:no-repeat; background-size: contain;background-position:center; z-index:10;}
+.markname{display:none; position:absolute; width:150px; height:80px; background-image:url('../img/qm/fang.png'); background-repeat: no-repeat; background-size: contain;background-position: center; z-index:10;}
+.markname1{display:none; position:absolute; width:150px; height:80px; background-image:url('../img/qm/wei.png'); background-repeat: no-repeat; background-size: contain;background-position: center; z-index:10;}
+.checkmarktime{  position:absolute; bottom:56px;}
+#checkmarktimesh{ left:150px;z-index:20}
+#checkmarktimesp{ right: 10px;z-index:20}
+.checkmarktime{ /*isplay: inline-block;*/}
+.checkmarktime input[name='suggesttimesh'], .checkmarktime input[name='suggesttimesp']{ width:120px;}
+.checkmarktime input[name='year']{background-color: transparent;width:40px;}
+.checkmarktime input[name='month'],.checkmarktime input[name='day']{background-color: transparent; width:23px;}
+.checkmarkunit{ position:absolute; bottom:80px; right:5px;}
+textarea[name="checkmakenote"]{ height:43px; margin-top:1px; /*vertical-align: bottom;*/}
+/*数据查询审批表 end*/

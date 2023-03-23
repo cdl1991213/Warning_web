@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>措施报告书</title>
+<!--    js外部框架引入-->
+    <script type="text/javascript" src="js/jquery-1.12.4-min.js"></script>
+    <script src="js/html2canvas.js"></script>
+    <script src="js/FileSaver.js"></script>
+
+<!--    js初始化页面引入-->
+    <script src="../../js/common.js"></script>
+
+<!--    js方法库引入-->
+    <script type="text/javascript" src="../../../js/js_methodGIT/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/value.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/comm.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/comm_util.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/time_utils.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/md5.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/aes.js"></script>
+    <script type="text/javascript" src="../../../js/js_methodGIT/aesUtil.js"></script>
+
+<!--    js页面功能引入-->
+    <script type="text/javascript" src="js/index.js"></script>
+
+<!--    css页面样式引入-->
+    <link rel="stylesheet" type="text/css" href="../../../css/style2.css">
+    <link rel="stylesheet" type="text/css" href="css/pagination.css">
+    <link rel="stylesheet" type="text/css" href="css/tablestyle.css">
+</head>
+
+<body>
+<div id="all_screen" class="all_screen" style="width:100%;height:auto;background-color:#011024;">
+    <!--    页面顶部导航栏-->
+    <div id="page_header"
+         style="float:left;width:19.2rem;height:0.9rem;background:url(../../../img/yjxt_common/navigation_bar.png) no-repeat center center;background-size:cover;position:relative;"></div>
+    <!--    打印、下载、编辑、签章等操作栏-->
+    <div style="float: left;width:7.14rem;height:1.03rem;margin-left:6.03rem;position:relative; ">
+        <div class="reportedit_content" style="float:left;left:0;top:0.75rem;height:0.45rem;line-height:0.18rem;font-size:0.14rem;position: absolute">返回</div>
+        <div id="reportedit" style="float:right;right:0;top:0.6rem;width:0.6rem;height:0.45rem;line-height:0.18rem;font-size:0.14rem;position: absolute;">
+            <div style="float: left;margin-left:0;margin-top:0.145rem;width:0.16rem;height:0.16rem;background:url(img/oprateedit.png) no-repeat center center;background-size: cover;"></div>
+            <div class="reportedit_content" style="float:right;margin-left:0;margin-top:0.145rem;width:0.4rem;height:0.18rem;text-align:left;">编辑</div>
+        </div>
+        <div style="float:right;right:0.86rem;top:0.6rem;width:0.6rem;height:0.45rem;line-height:0.18rem;font-size:0.14rem;position: absolute;">
+            <div style="float: left;margin-left:0;margin-top:0.145rem;width:0.16rem;height:0.16rem;background:url(img/opratesign.png) no-repeat center center;background-size: cover;"></div>
+            <div id="reportsign" class="reportedit_content" style="float:right;margin-left:0;margin-top:0.145rem;width:0.4rem;height:0.18rem;text-align:left;">签章</div>
+        </div>
+        <div id="reportdown" style="float:right;right:1.72rem;top:0.6rem;width:0.6rem;height:0.45rem;line-height:0.18rem;font-size:0.14rem;position: absolute;">
+            <div style="float: left;margin-left:0;margin-top:0.145rem;width:0.16rem;height:0.16rem;background:url(img/opratedown.png) no-repeat center center;background-size: cover;"></div>
+            <div class="reportedit_content" style="float:right;margin-left:0;margin-top:0.145rem;width:0.4rem;height:0.18rem;text-align:left;">下载</div>
+        </div>
+        <div id="reportprint" style="float:right;right:2.58rem;top:0.6rem;width:0.6rem;height:0.45rem;line-height:0.18rem;font-size:0.14rem;position: absolute;">
+            <div style="float: left;margin-left:0;margin-top:0.145rem;width:0.16rem;height:0.16rem;background:url(img/oprateprint.png) no-repeat center center;background-size: cover;"></div>
+            <div class="reportedit_content" style="float:right;margin-left:0;margin-top:0.145rem;width:0.4rem;height:0.18rem;text-align:left;">打印</div>
+        </div>
+    </div>
+
+    <!--    ------------------------------------------------------------------------------------->
+    <!--    措施报告书  表格外部框架-->
+    <div id="page_form"
+         style="float:left;margin-left:0.6rem;margin-top:0;width: 18rem;height: auto;position: relative;">
+        <!--        编辑表格-->
+        <!--  全页表格      -->
+        <div class="contentbox" id="tableReport" >
+
+            <div id="shang" >
+                <!--            上半页表头-->
+                <div class="conheader">
+                    <div class="top">
+                        <div class="lf">
+                            <div style="line-height: 25px;">
+                                <div style="float: left">密级：</div>
+                                <div id="mj" style="float: left">xx</div>
+                            </div>
+                            <div style="line-height: 25px;position: relative">
+                                <div style="float: left">期限：</div>
+                                <div id="qx" style="float: left">xx</div>
+                                <div  class="markseal2" style="width: 135px;height: 135px;margin-left: 100px;margin-top: -10px;background-repeat: no-repeat;background-size: contain;background-position: center;z-index:10;position: absolute"></div>
+                            </div>
+                            <!--background: url(./img/gz/dadui_rotation_6.png);-->
+                        </div>
+                        <div class="rt">表格编号：
+                            <input id="bgbh" type="text" name="tablenum" id="tablenum" value="" readonly="readonly">
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <!--<div class="markseal">哈哈哈哈哈</div>-->
+                    <!--<div>哈哈哈哈</div>-->
+
+                    <div class="title" style="position: relative">呈请采取网络信息查询监控措施报告书
+                    </div>
+
+                    <div class="bottom">
+                        <div class="lf">填表单位：
+                            <input id="tbdw" type="text" name="adminunit" id="reportadminunit" value="" readonly="readonly">
+                        </div>
+                        <div class="time rt">填表日期：
+                            <input id="tbrq" type="text" name="intime" id="intime" value="" readonly="readonly">
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <!--            上半页内框-->
+                <table cellpadding="0" cellspacing="0" style="page-break-after:always">
+                    <tr>
+                        <td class="lefttitle" colspan="3">案事件名称*</td>
+                        <td colspan="13">
+                            <input id="asjmc" type="text" name="causename" id="reportcausename" value="" readonly="readonly">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lefttitle" colspan="3">案事件类别*</td>
+                        <td colspan="13">
+                            <input id="asjlb" type="text" name="causetype" id="reportcausetype" value=""
+                                   readonly="readonly">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lefttitle" colspan="3">文书号*</td>
+                        <td colspan="13">
+                            <input id="wsh" type="text" name="documentno" id="reportdocumentno" value="" readonly="readonly">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lefttitle" colspan="3">承办人*</td>
+                        <td colspan="5">
+                            <input id="cbr" type="text" name="adminname" id="reportadminname" value="xxx" readonly="readonly">
+                        </td>
+                        <td class="lefttitle" colspan="3">联系方式*</td>
+                        <td colspan="5">
+                            <input id="lxfs" type="text" name="adminphone" id="reportadminphone" value="" readonly="readonly">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" class="aligntitle">基<br>本<br>情<br>况<br>*</td>
+                        <td colspan="15">
+                            <!--<textarea name="basicinfo" id="reportbasicinfo" maxlength="1000"></textarea>-->
+                            <div name="basicinfo" id="jbqk" onpaste="setpaste(this)" contenteditable="false" class="name1" style="text-indent:30px;text-align:left;white-space:normal;height: 400px;overflow: auto;"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" class="aligntitle padtitle">使<br>用<br>资<br>源<br>*</td>
+                        <td colspan="15">
+                            <!-- <textarea name="resource" id="reportresource" readonly="readonly"></textarea>-->
+                            <div name="resource" id="syzy" onpaste="setpaste(this)" contenteditable="false" class="name1" style="text-indent:30px;text-align:left;white-space:normal;height: 100px;overflow: auto;"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" class="aligntitle padtitle">使<br>用<br>目<br>的<br>*</td>
+                        <td colspan="15">
+                            <!--<textarea name="objective" id="reportobjective" readonly="readonly"></textarea>-->
+                            <div name="objective" id="symd" onpaste="setpaste(this)" contenteditable="false" class="name1" style="text-indent:30px;text-align:left;white-space:normal;height: 100px;overflow: auto;"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="aligntitle">备<br>注</td>
+                        <td colspan="15">
+                            <!--<textarea name="makenote" id="reportmakenote" maxlength="150"></textarea>-->
+                            <div name="makenote" id="bz" onpaste="setpaste(this)" contenteditable="false" class="name1" style="text-indent:30px;text-align:left;white-space:normal;height: 100px;overflow: auto;"></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="xia">
+                <!--下半页半框 加 中缝-->
+                <div class="tableblock">
+                    <!--                空的缝-->
+                    <div class="height35"></div>
+
+                    <!--                下半页内框-->
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td colspan="16">拟采取网络信息查询监控措施的对象、目标或特定信息*</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">序号</td>
+                            <td colspan="2">姓名</td>
+                            <td colspan="2">证件种<br>类与号<br>码</td>
+                            <td colspan="8">目标或特定信息</td>
+                            <td colspan="2">备注</td>
+                        </tr>
+                        <tbody id="reportlist">
+                        </tbody>
+                        <tr>
+                            <td colspan="16" class="sumabove">*申请对上述
+                                <input id="dx" type="text" name="reportobj" id="reportobj" value="" maxlength="1" readonly="readonly">个对象、
+                                <input id="mb" type="text" name="reportgoal" id="reportgoal" value="" maxlength="1" readonly="readonly">个目标、
+                                <input id="tdxx" type="text" name="reportspecial" id="reportspecial" value="" maxlength="1" readonly="readonly">个特定信息采取网络信息查询监控
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="16">采取网络信息查询监控措施的方式</td>
+                        </tr>
+                        <tr>
+                            <td colspan="8">√手动查询
+                            </td>
+                            <td colspan="8" class="lineheight20">查询时间：
+                                <input id="startTime" type="text" name="manntimestart" value="" readonly="readonly">
+                                至
+                                <input id="endTime" type="text" name="manntimeend" value="" readonly="readonly">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="8"><input type="checkbox" name="monitorsql" id="monitorsql" disabled="disabled">自动监控
+                            </td>
+                            <td colspan="8" class="reportrantime">监控期限:<input type="number" name="years"
+                                                                              oninput="if(value.length>4)value=value.slice(0,4)"
+                                                                              readonly="readonly">年<input type="number"
+                                                                                                          name="months"
+                                                                                                          oninput="if(value.length>2)value=value.slice(0,2)"
+                                                                                                          readonly="readonly">月<input
+                                    type="number" name="days" oninput="if(value.length>2)value=value.slice(0,2)"
+                                    readonly="readonly">日&nbsp;至<input type="number" name="yeare"
+                                                                       oninput="if(value.length>4)value=value.slice(0,4)"
+                                                                       readonly="readonly">年<input type="number"
+                                                                                                   name="monthe"
+                                                                                                   oninput="if(value.length>2)value=value.slice(0,2)"
+                                                                                                   readonly="readonly">月<input
+                                    type="number" name="daye" oninput="if(value.length>2)value=value.slice(0,2)"
+                                    readonly="readonly">日
+                            </td>
+                        </tr>
+                        <tr>
+
+
+                            <td class="aligntitle padtitle" colspan="1">提<br>请<br>单<br>位<br>意<br>见<br>*</td>
+                            <td colspan="7">
+                                <!-- <textarea cols="5" rows="4" name="reportmarktimeunit_content" id="reportmarktimeunit_content" readonly="readonly" ></textarea>-->
+                                <div name="reportmarktimeunit_content" id="tqdwyj" onpaste="setpaste(this)" contenteditable="false" class="name1" style="text-indent:30px;text-align:left;white-space:normal;height: 100px;overflow: auto;"></div>
+                                <!--   if  有没有签章     -->
+                                <div class="unitsuggest" id="reportsuggestunit">
+                                    <div class="markseal"></div>
+                                    <div class="markname"></div>
+                                </div>
+                                <div class="reportmarktime" id="reportmarktimeunit" >
+                                    <input type="text" name="suggesttimeunit" id="reportsuggesttimeunit" value="xxxxxxxx"
+                                           readonly="readonly">
+                                </div>
+                                <!--   if  有没有签章     -->
+                            </td>
+
+
+                            <td class="aligntitle padtitle" colspan="1">网<br>安<br>部<br>门<br>意<br>见<br>*</td>
+                            <td colspan="7">
+                                <!--<textarea cols="5" rows="4" name="reportmarktimenetwork_content" id="reportmarktimenetwork_content" readonly="readonly"  ></textarea>-->
+                                <div name="reportmarktimenetwork_content" id="wnbmyj" onpaste="setpaste(this)" contenteditable="false" class="name1" style="text-indent:30px;text-align:left;white-space:normal;height: 100px;overflow: auto;"></div>
+                                <!--   if  有没有签章     -->
+                                <div class="networksuggest" id="reportsuggestnetwork">
+                                    <div class="markseal"></div>
+                                    <div class="markname"></div>
+                                </div>
+                                <div class="reportmarktime" id="reportmarktimenetwork">
+                                    <input type="text" name="suggesttimenetwork" id="reportsuggesttimenetwork" value="xxxxxxxxx" readonly="readonly">
+                                </div>
+                                <!--   if  有没有签章     -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="aligntitle padtitle">公<br>安<br>机<br>关<br>意<br>见</td>
+                            <td colspan="15">
+                                <div name="reportmarktimenetwork_content" id="gnjgyj" onpaste="setpaste(this)" contenteditable="false" class="name1" style="text-indent:30px;text-align:left;white-space:normal;height: 100px;overflow: auto;"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--    ------------------------------------------------------------------------------------->
+
+    <!--    保存按钮栏-->
+    <div id="page_button" style="float:left;width:100%;height:1.2rem;position: relative;" onclick="convert()">
+        <div id="button_save" style="float: left;left:9.15rem;top:0.42rem;width:0.9rem;height:0.42rem;line-height:0.42rem;background:url(img/save.png) no-repeat center center;font-size:0.14rem;text-align:center;color:#ffffff;position: absolute;" onclick="save()" hidden>
+            保存
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+

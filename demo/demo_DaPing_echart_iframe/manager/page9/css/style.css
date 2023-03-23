@@ -1,0 +1,16 @@
+
+#all_screen {
+    width: 100%;
+    height: 100%;
+    background-color: #9db1cc;
+}
+
+.all_screen{
+    float:left;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    position:absolute;;
+    overflow: hidden;
+}
